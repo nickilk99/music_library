@@ -1,0 +1,9 @@
+C:\Users\nilkic03\source\repos\Music_Library\Music_Library\bin\Debug\Music_Library.exe.config
+C:\Users\nilkic03\source\repos\Music_Library\Music_Library\bin\Debug\Music_Library.exe
+C:\Users\nilkic03\source\repos\Music_Library\Music_Library\bin\Debug\Music_Library.pdb
+C:\Users\nilkic03\source\repos\Music_Library\Music_Library\obj\Debug\Music_Library.csprojAssemblyReference.cache
+C:\Users\nilkic03\source\repos\Music_Library\Music_Library\obj\Debug\Music_Library.FrmAddGenre.resources
+C:\Users\nilkic03\source\repos\Music_Library\Music_Library\obj\Debug\Music_Library.Properties.Resources.resources
+C:\Users\nilkic03\source\repos\Music_Library\Music_Library\obj\Debug\Music_Library.csproj.GenerateResource.cache
+C:\Users\nilkic03\source\repos\Music_Library\Music_Library\obj\Debug\Music_Library.exe
+C:\Users\nilkic03\source\repos\Music_Library\Music_Library\obj\Debug\Music_Library.pdb
