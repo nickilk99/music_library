@@ -56,14 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Album.cs" />
+    <Compile Include="Artist.cs" />
     <Compile Include="FrmAddGenre.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAddGenre.Designer.cs">
       <DependentUpon>FrmAddGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Genre.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Song.cs" />
     <EmbeddedResource Include="FrmAddGenre.resx">
       <DependentUpon>FrmAddGenre.cs</DependentUpon>
     </EmbeddedResource>
