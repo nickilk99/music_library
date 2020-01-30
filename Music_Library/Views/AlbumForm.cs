@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace Music_Library
 {
@@ -23,6 +25,8 @@ namespace Music_Library
 
         private void AlbumForm_Load(object sender, EventArgs e)
         {
+            //dvgAlbum.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            dvgAlbum.RowTemplate.Height = 75;
             Clear();
             PopulateDataGridView();
         }
@@ -34,22 +38,19 @@ namespace Music_Library
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("are you sure you want to delete? ", "crud operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (Message.show("Are you sure you want to delete?", MESSAGE_TYPE.ADVISORY) == DialogResult.Yes)
             {
-                using (MusicLibraryContext ac = new MusicLibraryContext())
+                int tempNum = MusicLibraryOperation.createOperation(TYPE.ALBUM).Delete(album);
+                if (tempNum > 0)
                 {
-                    var entry = ac.Entry(album);
-
-                    if (entry.State == EntityState.Detached)
-                    {
-                        ac.Albums.Attach(album);
-                    }
-                    ac.Albums.Remove(album);
-                    ac.SaveChanges();
-                    PopulateDataGridView();
-                    Clear();
-                    MessageBox.Show("deleted successfuly");
+                    Message.show("Deleted successfully.", MESSAGE_TYPE.SUCCESS);
                 }
+                else
+                {
+                    Message.show("Failed to delete.", MESSAGE_TYPE.FAILURE);
+                }
+                PopulateDataGridView();
+                Clear();
             }
         }
 
@@ -72,23 +73,28 @@ namespace Music_Library
             album.Length = Convert.ToInt32(txtLength.Text);
             album.Cover = ConvertFileToByte(this.pictureBoxPhoto.ImageLocation);
 
-            using (MusicLibraryContext ac = new MusicLibraryContext())
+
+
+            int tempNum;
+            if (album.AlbumId== 0)
             {
-                if (album.AlbumId == 0)
-                {
-                    ac.Albums.Add(album);
-                }
-                else
-                {
-                    ac.Entry(album).State = EntityState.Modified;
-                }
+                tempNum = MusicLibraryOperation.createOperation(TYPE.ALBUM).Add(album);
+            }
+            else
+            {
+                tempNum = MusicLibraryOperation.createOperation(TYPE.ALBUM).Update(album);
+            }
 
-                ac.SaveChanges();
-            }   
-
+            if (tempNum > 0)
+            {
+                Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
+            }
+            else
+            {
+                Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
+            }
             Clear();
             PopulateDataGridView();
-            MessageBox.Show("Submitted successfuly");
         }
 
 
@@ -117,21 +123,23 @@ namespace Music_Library
         {
             if (dvgAlbum.CurrentRow.Index != -1)
             {
-                album.AlbumId = Convert.ToInt32(dvgAlbum.CurrentRow.Cells["albumIdDataGridViewTextBoxColumn1"].Value);
-
-                using (MusicLibraryContext ac = new MusicLibraryContext())
+                int tempNum = Convert.ToInt32(dvgAlbum.CurrentRow.Cells["albumIdDataGridViewTextBoxColumn"].Value);
+                album = (Album)MusicLibraryOperation.createOperation(TYPE.ALBUM).Get(tempNum);
+                if (album == null)
                 {
-                    album = ac.Albums.Where(x => x.AlbumId == album.AlbumId).FirstOrDefault();
-                    txtAlbumTitle.Text = album.AlbumTitle;
-                    txtArtistName.Text = album.ArtistName;
-                    txtYear.Text = Convert.ToString(album.Year);
-                    txtLength.Text = Convert.ToString(album.Length);
-                    var img = new MemoryStream(album.Cover);
-                    pictureBoxPhoto.Image = Image.FromStream(img);
+                    Message.show("Could not find this information.", MESSAGE_TYPE.FAILURE);
+                    return;
                 }
+                txtAlbumTitle.Text = album.AlbumTitle;
+                txtArtistName.Text = album.ArtistName;
+                txtYear.Text = Convert.ToString(album.Year);
+                txtLength.Text = Convert.ToString(album.Length);
+                var img = new MemoryStream(album.Cover);
+                pictureBoxPhoto.Image = Image.FromStream(img);
                 btnSave.Text = "Update";
                 btnDelete.Enabled = true;
             }
+
         }
 
         private void addAGenreToolStripMenuItem_Click(object sender, EventArgs e)
