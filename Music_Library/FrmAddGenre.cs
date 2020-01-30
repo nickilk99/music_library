@@ -15,6 +15,7 @@ namespace Music_Library
     {
         MusicLibraryContext _context;
         Genre genre = new Genre();
+
         public FrmAddGenre()
         {
             InitializeComponent();
@@ -31,6 +32,8 @@ namespace Music_Library
 
             //bind the data to the source 
             this.genreBindingSource.DataSource = _context.Genres.Local.ToBindingList();
+
+            btnDeleteGenre.Enabled = false;
 
         }
 
@@ -126,24 +129,27 @@ namespace Music_Library
             genre.Type = txtType.Text.Trim();
             using (MusicLibraryContext db = new MusicLibraryContext())
             {
-                if (genre.GenreId == 0)
-                {
-                    db.Genres.Add(genre);
-
+                if (Validate(genre.Type)) 
+                { 
+                    if (genre.GenreId == 0)
+                    {
+                        db.Genres.Add(genre);
+                    }
+                    else
+                    {
+                        db.Entry(genre).State = EntityState.Modified;
+                    }
+                    db.SaveChanges();
+                    Clear();
+                    PopulateGenreList();
+                    MessageBox.Show("Genre entered successfully!");
                 }
-                else
-                {
-                    db.Entry(genre).State = EntityState.Modified;
-                }
-                db.SaveChanges();
 
 
             }
 
 
-            Clear();
-            PopulateGenreList();
-            MessageBox.Show("Genre entered successfully!");
+      
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -159,6 +165,16 @@ namespace Music_Library
                 frm.ShowDialog();
             }
 
+        }
+
+        private bool Validate(string str)
+        {
+            if (String.IsNullOrEmpty(str))
+            {
+                errorProvider1.SetError(txtType, "Please enter data");
+                return false;
+            }
+            return true;
         }
     }
 }

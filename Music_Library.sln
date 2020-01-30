@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.960
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music_Library", "Music_Library\Music_Library.csproj", "{89CFFD46-CF9D-44DC-A349-04739F71B109}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{D8DF2C14-B794-48D1-989A-CFF288F64E46}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music_Library", "..\..\..\Downloads\music_library-master\music_library-master\Music_Library\Music_Library.csproj", "{6DCF3775-0BF5-42F8-BFAD-50616FA06D31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +15,9 @@ Global
 		{89CFFD46-CF9D-44DC-A349-04739F71B109}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89CFFD46-CF9D-44DC-A349-04739F71B109}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89CFFD46-CF9D-44DC-A349-04739F71B109}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DCF3775-0BF5-42F8-BFAD-50616FA06D31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DCF3775-0BF5-42F8-BFAD-50616FA06D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DCF3775-0BF5-42F8-BFAD-50616FA06D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DCF3775-0BF5-42F8-BFAD-50616FA06D31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{6DCF3775-0BF5-42F8-BFAD-50616FA06D31} = {D8DF2C14-B794-48D1-989A-CFF288F64E46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8276E313-D8D8-4166-A3D0-AEC976B6D992}
