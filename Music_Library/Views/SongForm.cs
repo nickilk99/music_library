@@ -97,6 +97,8 @@ namespace Music_Library.Views
 
         private void SongForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Albums' table. You can move, or remove it, as needed.
+            this.albumsTableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.Albums);
             // TODO: This line of code loads data into the 'music_LibraryDataSet2.Genres' table. You can move, or remove it, as needed.
             this.genresTableAdapter3.Fill(this.music_LibraryDataSet2.Genres);
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Genres' table. You can move, or remove it, as needed.

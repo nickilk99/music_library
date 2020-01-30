@@ -48,6 +48,7 @@
             this.genreBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.albumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.albumComboBox = new System.Windows.Forms.ComboBox();
+            this.albumBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.music_LibraryDataSet = new Music_Library.Music_LibraryDataSet();
             this.genresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.genresTableAdapter = new Music_Library.Music_LibraryDataSetTableAdapters.GenresTableAdapter();
@@ -65,7 +66,9 @@
             this.genresBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.genresTableAdapter3 = new Music_Library.Music_LibraryDataSet2TableAdapters.GenresTableAdapter();
             this.tableAdapterManager2 = new Music_Library.Music_LibraryDataSet2TableAdapters.TableAdapterManager();
-            this.albumBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.albumBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.albumsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.albumsTableAdapter = new Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters.AlbumsTableAdapter();
             typeLabel = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songDataGridView)).BeginInit();
@@ -73,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.music_LibraryDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource1)).BeginInit();
@@ -82,7 +86,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.music_LibraryDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // typeLabel
@@ -222,7 +227,7 @@
             // 
             // albumComboBox
             // 
-            this.albumComboBox.DataSource = this.albumBindingSource1;
+            this.albumComboBox.DataSource = this.albumsBindingSource;
             this.albumComboBox.DisplayMember = "AlbumTitle";
             this.albumComboBox.FormattingEnabled = true;
             this.albumComboBox.Location = new System.Drawing.Point(57, 237);
@@ -230,6 +235,10 @@
             this.albumComboBox.Size = new System.Drawing.Size(205, 21);
             this.albumComboBox.TabIndex = 21;
             this.albumComboBox.ValueMember = "AlbumId";
+            // 
+            // albumBindingSource1
+            // 
+            this.albumBindingSource1.DataSource = typeof(Music_Library.Album);
             // 
             // music_LibraryDataSet
             // 
@@ -325,9 +334,18 @@
             this.tableAdapterManager2.GenresTableAdapter = this.genresTableAdapter3;
             this.tableAdapterManager2.UpdateOrder = Music_Library.Music_LibraryDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // albumBindingSource1
+            // albumBindingSource2
             // 
-            this.albumBindingSource1.DataSource = typeof(Music_Library.Album);
+            this.albumBindingSource2.DataSource = typeof(Music_Library.Album);
+            // 
+            // albumsBindingSource
+            // 
+            this.albumsBindingSource.DataMember = "Albums";
+            this.albumsBindingSource.DataSource = this._Music_Library_MusicLibraryContextDataSet;
+            // 
+            // albumsTableAdapter
+            // 
+            this.albumsTableAdapter.ClearBeforeFill = true;
             // 
             // SongForm
             // 
@@ -355,6 +373,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.music_LibraryDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource1)).EndInit();
@@ -364,7 +383,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.music_LibraryDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -408,5 +428,8 @@
         private Music_LibraryDataSet2TableAdapters.TableAdapterManager tableAdapterManager2;
         private System.Windows.Forms.BindingSource genresBindingSource4;
         private System.Windows.Forms.BindingSource albumBindingSource1;
+        private System.Windows.Forms.BindingSource albumBindingSource2;
+        private System.Windows.Forms.BindingSource albumsBindingSource;
+        private _Music_Library_MusicLibraryContextDataSetTableAdapters.AlbumsTableAdapter albumsTableAdapter;
     }
 }
