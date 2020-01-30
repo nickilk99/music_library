@@ -1,7 +1,6 @@
 ﻿using Music_Library.Views;
 using System;
-using System.Data;
-using System.Data.Entity;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,6 +8,8 @@ namespace Music_Library
 {
     public partial class ArtistForm : Form
     {
+        private static int MIN_AGE = 1;
+        private static int MAX_AGE = 130;
         private Artist artist = new Artist();
 
         public ArtistForm()
@@ -18,27 +19,35 @@ namespace Music_Library
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (!ValidateChildren(ValidationConstraints.Enabled))
+            {
+                return;
+            }
+
             artist.FirstName = textBoxFirstName.Text;
             artist.LastName = textBoxLastName.Text;
             artist.Age = Convert.ToInt32(textBoxAge.Text);
 
-            using (MusicLibraryContext musicLibraryContext = new MusicLibraryContext())
+            int tempNum;
+            if (artist.ArtistId == 0)
             {
-                if (artist.ArtistId == 0)
-                {
-                    musicLibraryContext.Artists.Add(artist);
-                }
-                else
-                {
-                    musicLibraryContext.Entry(artist).State = EntityState.Modified;
-                }
-
-                musicLibraryContext.SaveChanges();
+                tempNum = MusicLibraryOperation.createOperation(TYPE.ARTIST).Add(artist);
+            }
+            else
+            {
+                tempNum = MusicLibraryOperation.createOperation(TYPE.ARTIST).Update(artist);
             }
 
+            if (tempNum > 0)
+            {
+                Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
+            }
+            else
+            {
+                Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
+            }
             Clear();
             PopulateDataGridView();
-            MessageBox.Show("Submitted successfuly");
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -48,22 +57,24 @@ namespace Music_Library
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("are you sure you want to delete? ", "crud operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (!ValidateChildren(ValidationConstraints.Enabled))
             {
-                using (MusicLibraryContext musicLibraryContext = new MusicLibraryContext())
-                {
-                    var entry = musicLibraryContext.Entry(artist);
+                return;
+            }
 
-                    if (entry.State == EntityState.Detached)
-                    {
-                        musicLibraryContext.Artists.Attach(artist);
-                    }
-                    musicLibraryContext.Artists.Remove(artist);
-                    musicLibraryContext.SaveChanges();
-                    PopulateDataGridView();
-                    Clear();
-                    MessageBox.Show("deleted successfuly");
+            if (Message.show("Are you sure you want to delete?", MESSAGE_TYPE.ADVISORY) == DialogResult.Yes)
+            {
+                int tempNum = MusicLibraryOperation.createOperation(TYPE.ARTIST).Delete(artist);
+                if (tempNum > 0)
+                {
+                    Message.show("Deleted successfully.", MESSAGE_TYPE.SUCCESS);
                 }
+                else
+                {
+                    Message.show("Failed to delete.", MESSAGE_TYPE.FAILURE);
+                }
+                PopulateDataGridView();
+                Clear();
             }
         }
 
@@ -71,15 +82,16 @@ namespace Music_Library
         {
             if (dataGridViewArtist.CurrentRow.Index != -1)
             {
-                artist.ArtistId = Convert.ToInt32(dataGridViewArtist.CurrentRow.Cells["artistIdDataGridViewTextBoxColumn"].Value);
-
-                using (MusicLibraryContext musicLibraryContext = new MusicLibraryContext())
+                int tempNum = Convert.ToInt32(dataGridViewArtist.CurrentRow.Cells["artistIdDataGridViewTextBoxColumn"].Value);
+                artist = (Artist)MusicLibraryOperation.createOperation(TYPE.ARTIST).Get(tempNum);
+                if (artist == null)
                 {
-                    artist = musicLibraryContext.Artists.Where(x => x.ArtistId == artist.ArtistId).FirstOrDefault();
-                    textBoxFirstName.Text = artist.FirstName;
-                    textBoxLastName.Text = artist.LastName;
-                    textBoxAge.Text = Convert.ToString(artist.Age);
+                    Message.show("Could not find this information.", MESSAGE_TYPE.FAILURE);
+                    return;
                 }
+                textBoxFirstName.Text = artist.FirstName;
+                textBoxLastName.Text = artist.LastName;
+                textBoxAge.Text = Convert.ToString(artist.Age);
                 buttonSave.Text = "Update";
                 buttonDelete.Enabled = true;
             }
@@ -125,16 +137,81 @@ namespace Music_Library
             }
         }
 
-        private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         private void addASongToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             using (SongForm frm = new SongForm())
             {
                 frm.ShowDialog();
+            }
+        }
+
+        private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        /// <summary>
+        /// validate the first name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void firstNameValidating(object sender, CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            mandatoryDataValidating(textBox, e);
+        }
+
+        /// <summary>
+        /// validate the last name.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lastNameValidating(object sender, CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            mandatoryDataValidating(textBox, e);
+        }
+
+        /// <summary>
+        /// validate the age.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ageValidating(object sender, CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            mandatoryDataValidating(textBox, e);
+            illegalAgeValidating(textBox, e);
+        }
+
+        private void mandatoryDataValidating(TextBox textBox, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox.Text))
+            {
+                e.Cancel = true;
+                textBox.Focus();
+                errorProvider.SetError(textBox, "Please enter data.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(textBox, null);
+            }
+        }
+
+        private void illegalAgeValidating(TextBox textBox, CancelEventArgs e)
+        {
+            int tempNum = textBox.Text == "" ? 0 : Convert.ToInt32(textBox.Text);
+            if (tempNum < MIN_AGE || tempNum > MAX_AGE)
+            {
+                e.Cancel = true;
+                textBox.Focus();
+                errorProvider.SetError(textBox, "Please enter legal age.");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(textBox, null);
             }
         }
     }

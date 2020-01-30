@@ -74,13 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GenreOperation.cs" />
-    <Compile Include="Migrations\202001301846529_ff.cs" />
-    <Compile Include="Migrations\202001301846529_ff.designer.cs">
-      <DependentUpon>202001301846529_ff.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001302250249_album-update.cs" />
-    <Compile Include="Migrations\202001302250249_album-update.designer.cs">
-      <DependentUpon>202001302250249_album-update.cs</DependentUpon>
+    <Compile Include="Migrations\202001302057449_MusicLibrary.cs" />
+    <Compile Include="Migrations\202001302057449_MusicLibrary.designer.cs">
+      <DependentUpon>202001302057449_MusicLibrary.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Album.cs" />
     <Compile Include="AlbumOperation.cs" />
@@ -121,18 +117,6 @@
       <DependentUpon>GenreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Migrations\202001292347136_InitialCreate.cs" />
-    <Compile Include="Migrations\202001292347136_InitialCreate.designer.cs">
-      <DependentUpon>202001292347136_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001300000541_album.cs" />
-    <Compile Include="Migrations\202001300000541_album.designer.cs">
-      <DependentUpon>202001300000541_album.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001301622236_33.cs" />
-    <Compile Include="Migrations\202001301622236_33.designer.cs">
-      <DependentUpon>202001301622236_33.cs</DependentUpon>
-    </Compile>
     <Compile Include="IOperation.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -152,11 +136,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Music_Library_MusicLibraryContextDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202001301846529_ff.resx">
-      <DependentUpon>202001301846529_ff.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001302250249_album-update.resx">
-      <DependentUpon>202001302250249_album-update.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202001302057449_MusicLibrary.resx">
+      <DependentUpon>202001302057449_MusicLibrary.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
@@ -166,15 +147,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\GenreForm.resx">
       <DependentUpon>GenreForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001292347136_InitialCreate.resx">
-      <DependentUpon>202001292347136_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001300000541_album.resx">
-      <DependentUpon>202001300000541_album.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001301622236_33.resx">
-      <DependentUpon>202001301622236_33.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

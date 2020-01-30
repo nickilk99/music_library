@@ -45,13 +45,15 @@
             this.addAnAlbumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.artistIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArtist)).BeginInit();
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,27 +62,27 @@
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.Location = new System.Drawing.Point(55, 105);
             this.labelFirstName.Name = "labelFirstName";
-            this.labelFirstName.Size = new System.Drawing.Size(57, 13);
+            this.labelFirstName.Size = new System.Drawing.Size(60, 13);
             this.labelFirstName.TabIndex = 0;
-            this.labelFirstName.Text = "First Name";
+            this.labelFirstName.Text = "First Name:";
             // 
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
             this.labelLastName.Location = new System.Drawing.Point(54, 191);
             this.labelLastName.Name = "labelLastName";
-            this.labelLastName.Size = new System.Drawing.Size(58, 13);
+            this.labelLastName.Size = new System.Drawing.Size(61, 13);
             this.labelLastName.TabIndex = 1;
-            this.labelLastName.Text = "Last Name";
+            this.labelLastName.Text = "Last Name:";
             // 
             // labelAge
             // 
             this.labelAge.AutoSize = true;
             this.labelAge.Location = new System.Drawing.Point(86, 272);
             this.labelAge.Name = "labelAge";
-            this.labelAge.Size = new System.Drawing.Size(26, 13);
+            this.labelAge.Size = new System.Drawing.Size(29, 13);
             this.labelAge.TabIndex = 2;
-            this.labelAge.Text = "Age";
+            this.labelAge.Text = "Age:";
             // 
             // textBoxFirstName
             // 
@@ -88,6 +90,7 @@
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(200, 20);
             this.textBoxFirstName.TabIndex = 3;
+            this.textBoxFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.firstNameValidating);
             // 
             // textBoxLastName
             // 
@@ -95,6 +98,7 @@
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(200, 20);
             this.textBoxLastName.TabIndex = 4;
+            this.textBoxLastName.Validating += new System.ComponentModel.CancelEventHandler(this.lastNameValidating);
             // 
             // textBoxAge
             // 
@@ -102,6 +106,7 @@
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(200, 20);
             this.textBoxAge.TabIndex = 5;
+            this.textBoxAge.Validating += new System.ComponentModel.CancelEventHandler(this.ageValidating);
             // 
             // buttonSave
             // 
@@ -198,9 +203,9 @@
             this.libraryToolStripMenuItem.Text = "Library";
             this.libraryToolStripMenuItem.Click += new System.EventHandler(this.libraryToolStripMenuItem_Click);
             // 
-            // artistBindingSource
+            // errorProvider
             // 
-            this.artistBindingSource.DataSource = typeof(Music_Library.Artist);
+            this.errorProvider.ContainerControl = this;
             // 
             // artistIdDataGridViewTextBoxColumn
             // 
@@ -227,6 +232,10 @@
             this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
             this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
             // 
+            // artistBindingSource
+            // 
+            this.artistBindingSource.DataSource = typeof(Music_Library.Artist);
+            // 
             // ArtistForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,11 +254,13 @@
             this.Controls.Add(this.labelFirstName);
             this.MaximizeBox = false;
             this.Name = "ArtistForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ArtistForm";
             this.Load += new System.EventHandler(this.ArtistForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArtist)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.artistBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -279,5 +290,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
