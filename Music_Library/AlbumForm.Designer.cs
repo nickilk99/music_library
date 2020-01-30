@@ -253,7 +253,6 @@
         private System.Windows.Forms.TextBox txtAlbumTitle;
         private System.Windows.Forms.BindingSource albumBindingSource;
         private System.Windows.Forms.BindingSource albumBindingSource1;
-
         private System.Windows.Forms.BindingSource albumBindingSource2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridView dvgAlbum;
