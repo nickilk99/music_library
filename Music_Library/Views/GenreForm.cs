@@ -1,21 +1,16 @@
 ﻿using Music_Library.Views;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Music_Library
 {
     public partial class GenreForm : Form
     {
-        MusicLibraryContext _context;
-        Genre genre = new Genre();
+        private MusicLibraryContext _context;
+        private Genre genre = new Genre();
 
         public GenreForm()
         {
@@ -30,12 +25,10 @@ namespace Music_Library
             //load categories from db
             _context.Genres.Load();
 
-
-            //bind the data to the source 
+            //bind the data to the source
             this.genreBindingSource.DataSource = _context.Genres.Local.ToBindingList();
 
             btnDeleteGenre.Enabled = false;
-
         }
 
         private void addAGenreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,23 +40,8 @@ namespace Music_Library
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void genreBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-
-
         protected override void OnClosing(CancelEventArgs e)
         {
-
             base.OnClosing(e);
             //dispose context and close connection
             this._context.Dispose();
@@ -85,21 +63,19 @@ namespace Music_Library
             }
         }
 
-        private void genreDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void genreDataGridView_DoubleClick(object sender, EventArgs e)
         {
             if (genreDataGridView.CurrentRow.Index != 1)
             {
-                genre.GenreId = Convert.ToInt32(genreDataGridView.CurrentRow.Cells["GenreId"].Value);
-                using (MusicLibraryContext db = new MusicLibraryContext())
+                int tempNum = Convert.ToInt32(genreDataGridView.CurrentRow.Cells["GenreId"].Value);
+
+                genre = (Genre)MusicLibraryOperation.createOperation(TYPE.GENRE).Get(tempNum);
+                if (genre == null)
                 {
-                    genre = db.Genres.Where(x => x.GenreId == genre.GenreId).FirstOrDefault();
-                    txtType.Text = genre.Type;
+                    Message.show("Could not find this information.", MESSAGE_TYPE.FAILURE);
+                    return;
                 }
+                txtType.Text = genre.Type;
                 btnsaveGenre.Text = "Update";
                 btnDeleteGenre.Enabled = true;
             }
@@ -107,50 +83,46 @@ namespace Music_Library
 
         private void btnDeleteGenre_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure?", "Delete Genre", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (Message.show("Are you sure you want to delete?", MESSAGE_TYPE.ADVISORY) == DialogResult.Yes)
             {
-                using (MusicLibraryContext db = new MusicLibraryContext())
+                int tempNum = MusicLibraryOperation.createOperation(TYPE.GENRE).Delete(genre);
+                if (tempNum > 0)
                 {
-                    var entry = db.Entry(genre);
-                    if(entry.State == EntityState.Detached)
-                    {
-                        db.Genres.Attach(genre);
-                    }
-                    db.Genres.Remove(genre);
-                    db.SaveChanges();
-                    PopulateGenreList();
-                    Clear();
-                    MessageBox.Show("Genre Deleted!");
+                    Message.show("Deleted successfully.", MESSAGE_TYPE.SUCCESS);
                 }
+                else
+                {
+                    Message.show("Failed to delete.", MESSAGE_TYPE.FAILURE);
+                }
+                PopulateGenreList();
+                Clear();
             }
         }
 
         private void btnsaveGenre_Click(object sender, EventArgs e)
         {
             genre.Type = txtType.Text.Trim();
-            using (MusicLibraryContext db = new MusicLibraryContext())
+
+            int tempNum;
+            if (genre.GenreId == 0)
             {
-                if (Validate(genre.Type)) 
-                { 
-                    if (genre.GenreId == 0)
-                    {
-                        db.Genres.Add(genre);
-                    }
-                    else
-                    {
-                        db.Entry(genre).State = EntityState.Modified;
-                    }
-                    db.SaveChanges();
-                    Clear();
-                    PopulateGenreList();
-                    MessageBox.Show("Genre entered successfully!");
-                }
-
-
+                tempNum = MusicLibraryOperation.createOperation(TYPE.GENRE).Add(genre);
+            }
+            else
+            {
+                tempNum = MusicLibraryOperation.createOperation(TYPE.GENRE).Update(genre);
             }
 
-
-      
+            if (tempNum > 0)
+            {
+                Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
+            }
+            else
+            {
+                Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
+            }
+            Clear();
+            PopulateGenreList();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -165,7 +137,6 @@ namespace Music_Library
             {
                 frm.ShowDialog();
             }
-
         }
 
         private bool Validate(string str)
