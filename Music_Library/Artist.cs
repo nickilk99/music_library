@@ -8,7 +8,9 @@ namespace Music_Library
 {
     public class Artist
     {
-        public string Name { set; get; }
-
+        public int ArtistId { get; set; }
+        public string FirstName { set; get; }
+        public string LastName { set; get; }
+        public int Age { set; get; }
     }
 }
