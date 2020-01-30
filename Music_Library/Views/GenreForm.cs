@@ -107,7 +107,7 @@ namespace Music_Library
 
         private void btnDeleteGenre_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure?", "Test", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if(MessageBox.Show("Are you sure?", "Delete Genre", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 using (MusicLibraryContext db = new MusicLibraryContext())
                 {
