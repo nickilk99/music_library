@@ -78,6 +78,10 @@
     <Compile Include="Migrations\202001301846529_ff.designer.cs">
       <DependentUpon>202001301846529_ff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001302250249_album-update.cs" />
+    <Compile Include="Migrations\202001302250249_album-update.designer.cs">
+      <DependentUpon>202001302250249_album-update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Album.cs" />
     <Compile Include="AlbumOperation.cs" />
     <Compile Include="Music_LibraryDataSet.Designer.cs">
@@ -150,6 +154,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202001301846529_ff.resx">
       <DependentUpon>202001301846529_ff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001302250249_album-update.resx">
+      <DependentUpon>202001302250249_album-update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
