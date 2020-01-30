@@ -74,6 +74,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Album.cs" />
+    <Compile Include="ArtistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArtistForm.Designer.cs">
+      <DependentUpon>ArtistForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlbumForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     <Compile Include="Song.cs" />
     <EmbeddedResource Include="AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArtistForm.resx">
+      <DependentUpon>ArtistForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAddGenre.resx">
       <DependentUpon>FrmAddGenre.cs</DependentUpon>
