@@ -37,17 +37,18 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
             this.genreDataGridView = new System.Windows.Forms.DataGridView();
-            this.GenreId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnDeleteGenre = new System.Windows.Forms.Button();
             this.btnsaveGenre = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.GenreId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genreDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -56,6 +57,7 @@
             this.addAGenreToolStripMenuItem,
             this.addAnArtistToolStripMenuItem,
             this.addAnAlbumToolStripMenuItem,
+            this.addASongToolStripMenuItem,
             this.libraryToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
@@ -120,22 +122,6 @@
             this.genreDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.genreDataGridView_CellContentClick);
             this.genreDataGridView.DoubleClick += new System.EventHandler(this.genreDataGridView_DoubleClick);
             // 
-            // GenreId
-            // 
-            this.GenreId.DataPropertyName = "GenreId";
-            this.GenreId.HeaderText = "GenreId";
-            this.GenreId.Name = "GenreId";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Type";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // genreBindingSource
-            // 
-            this.genreBindingSource.DataSource = typeof(Music_Library.Genre);
-            // 
             // btnDeleteGenre
             // 
             this.btnDeleteGenre.Location = new System.Drawing.Point(102, 198);
@@ -170,6 +156,29 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // GenreId
+            // 
+            this.GenreId.DataPropertyName = "GenreId";
+            this.GenreId.HeaderText = "GenreId";
+            this.GenreId.Name = "GenreId";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Type";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // genreBindingSource
+            // 
+            this.genreBindingSource.DataSource = typeof(Music_Library.Genre);
+            // 
+            // addASongToolStripMenuItem
+            // 
+            this.addASongToolStripMenuItem.Name = "addASongToolStripMenuItem";
+            this.addASongToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.addASongToolStripMenuItem.Text = "Add a Song";
+            this.addASongToolStripMenuItem.Click += new System.EventHandler(this.addASongToolStripMenuItem_Click);
+            // 
             // FrmAddGenre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,8 +196,8 @@
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genreDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +219,7 @@
         private System.Windows.Forms.Button btnsaveGenre;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolStripMenuItem addASongToolStripMenuItem;
     }
 }
 

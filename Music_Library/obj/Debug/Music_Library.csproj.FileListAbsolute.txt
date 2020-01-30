@@ -42,3 +42,4 @@ C:\Users\admin\source\repos\music_library\Music_Library\obj\Debug\Music_Library.
 C:\Users\admin\Source\Repos\music_library\Music_Library\obj\Debug\Music_Library.csproj.CopyComplete
 C:\Users\admin\source\repos\music_library\Music_Library\obj\Debug\Music_Library.exe
 C:\Users\admin\source\repos\music_library\Music_Library\obj\Debug\Music_Library.pdb
+C:\Users\admin\source\repos\music_library\Music_Library\obj\Debug\Music_Library.FrmAddSong.resources

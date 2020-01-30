@@ -176,5 +176,16 @@ namespace Music_Library
             }
             return true;
         }
+
+        private void addASongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (FrmAddSong frm = new FrmAddSong())
+            {
+                frm.ShowDialog();
+            }
+
+
+        }
     }
 }

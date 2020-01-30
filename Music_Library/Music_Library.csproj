@@ -87,6 +87,12 @@
     <Compile Include="FrmAddGenre.Designer.cs">
       <DependentUpon>FrmAddGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAddSong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddSong.Designer.cs">
+      <DependentUpon>FrmAddSong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Genre.cs" />
     <Compile Include="Migrations\202001292347136_InitialCreate.cs" />
     <Compile Include="Migrations\202001292347136_InitialCreate.designer.cs">
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAddGenre.resx">
       <DependentUpon>FrmAddGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddSong.resx">
+      <DependentUpon>FrmAddSong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001292347136_InitialCreate.resx">
       <DependentUpon>202001292347136_InitialCreate.cs</DependentUpon>
