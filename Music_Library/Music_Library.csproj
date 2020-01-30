@@ -73,7 +73,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenreOperation.cs" />
+    <Compile Include="Migrations\202001301846529_ff.cs" />
+    <Compile Include="Migrations\202001301846529_ff.designer.cs">
+      <DependentUpon>202001301846529_ff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Album.cs" />
+    <Compile Include="AlbumOperation.cs" />
+    <Compile Include="SongOperation.cs" />
     <Compile Include="Views\ArtistForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +128,9 @@
     <Compile Include="Views\SongForm.Designer.cs">
       <DependentUpon>SongForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\202001301846529_ff.resx">
+      <DependentUpon>202001301846529_ff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </EmbeddedResource>

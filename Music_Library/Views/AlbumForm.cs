@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Music_Library.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -122,6 +123,33 @@ namespace Music_Library
         {
             this.Hide();
             using (GenreForm frm = new GenreForm())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void addAnArtistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (ArtistForm frm = new ArtistForm())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void addAnAlbumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (AlbumForm frm = new AlbumForm())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void addASongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (SongForm frm = new SongForm())
             {
                 frm.ShowDialog();
             }

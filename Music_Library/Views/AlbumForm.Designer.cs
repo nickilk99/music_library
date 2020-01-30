@@ -242,18 +242,22 @@
             this.addAnArtistToolStripMenuItem.Name = "addAnArtistToolStripMenuItem";
             this.addAnArtistToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.addAnArtistToolStripMenuItem.Text = "Add an Artist";
+            this.addAnArtistToolStripMenuItem.Click += new System.EventHandler(this.addAnArtistToolStripMenuItem_Click);
             // 
             // addAnAlbumToolStripMenuItem
             // 
+            this.addAnAlbumToolStripMenuItem.Enabled = false;
             this.addAnAlbumToolStripMenuItem.Name = "addAnAlbumToolStripMenuItem";
             this.addAnAlbumToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.addAnAlbumToolStripMenuItem.Text = "Add an Album";
+            this.addAnAlbumToolStripMenuItem.Click += new System.EventHandler(this.addAnAlbumToolStripMenuItem_Click);
             // 
             // addASongToolStripMenuItem
             // 
             this.addASongToolStripMenuItem.Name = "addASongToolStripMenuItem";
             this.addASongToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.addASongToolStripMenuItem.Text = "Add a Song";
+            this.addASongToolStripMenuItem.Click += new System.EventHandler(this.addASongToolStripMenuItem_Click);
             // 
             // libraryToolStripMenuItem
             // 

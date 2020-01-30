@@ -33,6 +33,7 @@
             this.addAGenreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAnArtistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAnAlbumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtType = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.btnsaveGenre = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genreDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).BeginInit();
@@ -67,6 +67,7 @@
             // 
             // addAGenreToolStripMenuItem
             // 
+            this.addAGenreToolStripMenuItem.Enabled = false;
             this.addAGenreToolStripMenuItem.Name = "addAGenreToolStripMenuItem";
             this.addAGenreToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.addAGenreToolStripMenuItem.Text = "Add a Genre";
@@ -85,6 +86,13 @@
             this.addAnAlbumToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.addAnAlbumToolStripMenuItem.Text = "Add an Album";
             this.addAnAlbumToolStripMenuItem.Click += new System.EventHandler(this.addAnAlbumToolStripMenuItem_Click);
+            // 
+            // addASongToolStripMenuItem
+            // 
+            this.addASongToolStripMenuItem.Name = "addASongToolStripMenuItem";
+            this.addASongToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.addASongToolStripMenuItem.Text = "Add a Song";
+            this.addASongToolStripMenuItem.Click += new System.EventHandler(this.addASongToolStripMenuItem_Click);
             // 
             // libraryToolStripMenuItem
             // 
@@ -173,14 +181,7 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // addASongToolStripMenuItem
-            // 
-            this.addASongToolStripMenuItem.Name = "addASongToolStripMenuItem";
-            this.addASongToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.addASongToolStripMenuItem.Text = "Add a Song";
-            this.addASongToolStripMenuItem.Click += new System.EventHandler(this.addASongToolStripMenuItem_Click);
-            // 
-            // FrmAddGenre
+            // GenreForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -192,7 +193,7 @@
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.txtType);
             this.Controls.Add(this.menuStrip2);
-            this.Name = "FrmAddGenre";
+            this.Name = "GenreForm";
             this.Text = "Add a Genre";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();

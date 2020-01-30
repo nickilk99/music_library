@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Music_Library.Views;
+using System;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -130,7 +131,11 @@ namespace Music_Library
 
         private void addASongToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            using (SongForm frm = new SongForm())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }
