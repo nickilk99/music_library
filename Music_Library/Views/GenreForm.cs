@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Music_Library.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,12 +12,12 @@ using System.Windows.Forms;
 
 namespace Music_Library
 {
-    public partial class FrmAddGenre : Form
+    public partial class GenreForm : Form
     {
         MusicLibraryContext _context;
         Genre genre = new Genre();
 
-        public FrmAddGenre()
+        public GenreForm()
         {
             InitializeComponent();
         }
@@ -40,7 +41,7 @@ namespace Music_Library
         private void addAGenreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            using (FrmAddGenre frm = new FrmAddGenre())
+            using (GenreForm frm = new GenreForm())
             {
                 frm.ShowDialog();
             }
@@ -154,7 +155,7 @@ namespace Music_Library
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            Clear();
         }
 
         private void addAnAlbumToolStripMenuItem_Click(object sender, EventArgs e)
@@ -175,6 +176,24 @@ namespace Music_Library
                 return false;
             }
             return true;
+        }
+
+        private void addASongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (SongForm frm = new SongForm())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void addAnArtistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (ArtistForm frm = new ArtistForm())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

@@ -73,27 +73,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Album.cs" />
-    <Compile Include="ArtistForm.cs">
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Views\ArtistForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ArtistForm.Designer.cs">
+    <Compile Include="Views\ArtistForm.Designer.cs">
       <DependentUpon>ArtistForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AlbumForm.cs">
+    <Compile Include="Views\AlbumForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AlbumForm.Designer.cs">
+    <Compile Include="Views\AlbumForm.Designer.cs">
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Artist.cs" />
-    <Compile Include="FrmAddGenre.cs">
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Views\GenreForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddGenre.Designer.cs">
-      <DependentUpon>FrmAddGenre.cs</DependentUpon>
+    <Compile Include="Views\GenreForm.Designer.cs">
+      <DependentUpon>GenreForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Genre.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Migrations\202001292347136_InitialCreate.cs" />
     <Compile Include="Migrations\202001292347136_InitialCreate.designer.cs">
       <DependentUpon>202001292347136_InitialCreate.cs</DependentUpon>
@@ -102,25 +102,38 @@
     <Compile Include="Migrations\202001300000541_album.designer.cs">
       <DependentUpon>202001300000541_album.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001301622236_33.cs" />
+    <Compile Include="Migrations\202001301622236_33.designer.cs">
+      <DependentUpon>202001301622236_33.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicLibraryContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Song.cs" />
-    <EmbeddedResource Include="AlbumForm.resx">
+    <Compile Include="Models\Song.cs" />
+    <Compile Include="Views\SongForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SongForm.Designer.cs">
+      <DependentUpon>SongForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Views\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ArtistForm.resx">
+    <EmbeddedResource Include="Views\ArtistForm.resx">
       <DependentUpon>ArtistForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAddGenre.resx">
-      <DependentUpon>FrmAddGenre.cs</DependentUpon>
+    <EmbeddedResource Include="Views\GenreForm.resx">
+      <DependentUpon>GenreForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001292347136_InitialCreate.resx">
       <DependentUpon>202001292347136_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001300000541_album.resx">
       <DependentUpon>202001300000541_album.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001301622236_33.resx">
+      <DependentUpon>202001301622236_33.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,6 +144,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\SongForm.resx">
+      <DependentUpon>SongForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Album.datasource" />
     <None Include="Properties\DataSources\Artist.datasource" />

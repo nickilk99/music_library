@@ -50,16 +50,23 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.albumBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.addAGenreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addAnArtistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addAnAlbumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource2)).BeginInit();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 30);
+            this.label1.Location = new System.Drawing.Point(36, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 0;
@@ -67,14 +74,14 @@
             // 
             // txtAlbumTitle
             // 
-            this.txtAlbumTitle.Location = new System.Drawing.Point(106, 27);
+            this.txtAlbumTitle.Location = new System.Drawing.Point(106, 50);
             this.txtAlbumTitle.Name = "txtAlbumTitle";
             this.txtAlbumTitle.Size = new System.Drawing.Size(100, 20);
             this.txtAlbumTitle.TabIndex = 1;
             // 
             // txtArtistName
             // 
-            this.txtArtistName.Location = new System.Drawing.Point(106, 53);
+            this.txtArtistName.Location = new System.Drawing.Point(106, 76);
             this.txtArtistName.Name = "txtArtistName";
             this.txtArtistName.Size = new System.Drawing.Size(100, 20);
             this.txtArtistName.TabIndex = 3;
@@ -82,7 +89,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 56);
+            this.label2.Location = new System.Drawing.Point(36, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 2;
@@ -90,7 +97,7 @@
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(106, 79);
+            this.txtYear.Location = new System.Drawing.Point(106, 102);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(100, 20);
             this.txtYear.TabIndex = 5;
@@ -98,7 +105,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 82);
+            this.label3.Location = new System.Drawing.Point(36, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 4;
@@ -106,7 +113,7 @@
             // 
             // txtLength
             // 
-            this.txtLength.Location = new System.Drawing.Point(106, 105);
+            this.txtLength.Location = new System.Drawing.Point(106, 128);
             this.txtLength.Name = "txtLength";
             this.txtLength.Size = new System.Drawing.Size(100, 20);
             this.txtLength.TabIndex = 7;
@@ -114,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 108);
+            this.label4.Location = new System.Drawing.Point(36, 131);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 6;
@@ -122,7 +129,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(36, 246);
+            this.btnSave.Location = new System.Drawing.Point(36, 269);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
@@ -132,7 +139,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(117, 246);
+            this.btnDelete.Location = new System.Drawing.Point(117, 269);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 9;
@@ -142,7 +149,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(198, 246);
+            this.btnCancel.Location = new System.Drawing.Point(198, 269);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 10;
@@ -168,7 +175,7 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
             this.dvgAlbum.DataSource = this.albumBindingSource2;
-            this.dvgAlbum.Location = new System.Drawing.Point(319, 27);
+            this.dvgAlbum.Location = new System.Drawing.Point(319, 50);
             this.dvgAlbum.Name = "dvgAlbum";
             this.dvgAlbum.Size = new System.Drawing.Size(444, 242);
             this.dvgAlbum.TabIndex = 12;
@@ -209,11 +216,57 @@
             // 
             this.albumBindingSource2.DataSource = typeof(Music_Library.Album);
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addAGenreToolStripMenuItem,
+            this.addAnArtistToolStripMenuItem,
+            this.addAnAlbumToolStripMenuItem,
+            this.addASongToolStripMenuItem,
+            this.libraryToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip2.TabIndex = 13;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // addAGenreToolStripMenuItem
+            // 
+            this.addAGenreToolStripMenuItem.Name = "addAGenreToolStripMenuItem";
+            this.addAGenreToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.addAGenreToolStripMenuItem.Text = "Add a Genre";
+            this.addAGenreToolStripMenuItem.Click += new System.EventHandler(this.addAGenreToolStripMenuItem_Click);
+            // 
+            // addAnArtistToolStripMenuItem
+            // 
+            this.addAnArtistToolStripMenuItem.Name = "addAnArtistToolStripMenuItem";
+            this.addAnArtistToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.addAnArtistToolStripMenuItem.Text = "Add an Artist";
+            // 
+            // addAnAlbumToolStripMenuItem
+            // 
+            this.addAnAlbumToolStripMenuItem.Name = "addAnAlbumToolStripMenuItem";
+            this.addAnAlbumToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.addAnAlbumToolStripMenuItem.Text = "Add an Album";
+            // 
+            // addASongToolStripMenuItem
+            // 
+            this.addASongToolStripMenuItem.Name = "addASongToolStripMenuItem";
+            this.addASongToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.addASongToolStripMenuItem.Text = "Add a Song";
+            // 
+            // libraryToolStripMenuItem
+            // 
+            this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
+            this.libraryToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.libraryToolStripMenuItem.Text = "Library";
+            // 
             // AlbumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 323);
+            this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.dvgAlbum);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
@@ -233,6 +286,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAlbum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource2)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,6 +316,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem addAGenreToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addAnArtistToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addAnAlbumToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addASongToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem libraryToolStripMenuItem;
     }
 }
 

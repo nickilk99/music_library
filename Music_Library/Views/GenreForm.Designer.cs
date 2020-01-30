@@ -1,6 +1,6 @@
 ﻿namespace Music_Library
 {
-    partial class FrmAddGenre
+    partial class GenreForm
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,7 @@
             this.btnsaveGenre = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genreDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).BeginInit();
@@ -56,6 +57,7 @@
             this.addAGenreToolStripMenuItem,
             this.addAnArtistToolStripMenuItem,
             this.addAnAlbumToolStripMenuItem,
+            this.addASongToolStripMenuItem,
             this.libraryToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
@@ -75,6 +77,7 @@
             this.addAnArtistToolStripMenuItem.Name = "addAnArtistToolStripMenuItem";
             this.addAnArtistToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.addAnArtistToolStripMenuItem.Text = "Add an Artist";
+            this.addAnArtistToolStripMenuItem.Click += new System.EventHandler(this.addAnArtistToolStripMenuItem_Click);
             // 
             // addAnAlbumToolStripMenuItem
             // 
@@ -170,6 +173,13 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // addASongToolStripMenuItem
+            // 
+            this.addASongToolStripMenuItem.Name = "addASongToolStripMenuItem";
+            this.addASongToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.addASongToolStripMenuItem.Text = "Add a Song";
+            this.addASongToolStripMenuItem.Click += new System.EventHandler(this.addASongToolStripMenuItem_Click);
+            // 
             // FrmAddGenre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -210,6 +220,7 @@
         private System.Windows.Forms.Button btnsaveGenre;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolStripMenuItem addASongToolStripMenuItem;
     }
 }
 

@@ -117,5 +117,14 @@ namespace Music_Library
                 btnDelete.Enabled = true;
             }
         }
+
+        private void addAGenreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (GenreForm frm = new GenreForm())
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 }

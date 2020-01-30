@@ -109,7 +109,7 @@ namespace Music_Library
         private void addAGenreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            using (FrmAddGenre frm = new FrmAddGenre())
+            using (GenreForm frm = new GenreForm())
             {
                 frm.ShowDialog();
             }
