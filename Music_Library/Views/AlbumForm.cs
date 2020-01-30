@@ -1,5 +1,4 @@
-﻿using Music_Library.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Music_Library
 {
@@ -53,12 +53,24 @@ namespace Music_Library
             }
         }
 
+        private byte[] ConvertFileToByte(string spath) {
+            byte[] data = null;
+            FileInfo fInfo = new FileInfo(spath);
+            long numBytes = fInfo.Length;
+            FileStream fs = new FileStream(spath,FileMode.Open,FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs);
+            data = br.ReadBytes((int)numBytes);
+
+            return data;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             album.AlbumTitle = txtAlbumTitle.Text;
             album.ArtistName = txtArtistName.Text;
             album.Year = Convert.ToInt32(txtYear.Text);
             album.Length = Convert.ToInt32(txtLength.Text);
+            album.Cover = ConvertFileToByte(this.pictureBoxPhoto.ImageLocation);
 
             using (MusicLibraryContext ac = new MusicLibraryContext())
             {
@@ -72,7 +84,7 @@ namespace Music_Library
                 }
 
                 ac.SaveChanges();
-            }
+            }   
 
             Clear();
             PopulateDataGridView();
@@ -94,9 +106,11 @@ namespace Music_Library
         void Clear()
         {
             txtAlbumTitle.Text = txtArtistName.Text = txtLength.Text = txtYear.Text = "";
+            pictureBoxPhoto.Image = null;
             btnSave.Text = "Save";
             btnDelete.Enabled = false;
             album.AlbumId = 0;
+            
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -112,7 +126,8 @@ namespace Music_Library
                     txtArtistName.Text = album.ArtistName;
                     txtYear.Text = Convert.ToString(album.Year);
                     txtLength.Text = Convert.ToString(album.Length);
-
+                    var img = new MemoryStream(album.Cover);
+                    pictureBoxPhoto.Image = Image.FromStream(img);
                 }
                 btnSave.Text = "Update";
                 btnDelete.Enabled = true;
@@ -128,31 +143,17 @@ namespace Music_Library
             }
         }
 
-        private void addAnArtistToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnBrowse_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            using (ArtistForm frm = new ArtistForm())
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Select a Cover";
+            ofd.Filter = "JPG|*.jpg|PNG|*.png|GIF|*.gif";
+            ofd.Multiselect = false;
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                frm.ShowDialog();
+                this.pictureBoxPhoto.ImageLocation = ofd.FileName;
             }
-        }
 
-        private void addAnAlbumToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            using (AlbumForm frm = new AlbumForm())
-            {
-                frm.ShowDialog();
-            }
-        }
-
-        private void addASongToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            using (SongForm frm = new SongForm())
-            {
-                frm.ShowDialog();
-            }
         }
     }
 }

@@ -13,5 +13,7 @@ namespace Music_Library
         public string ArtistName { get; set; }
         public int Year { get; set; }
         public int Length { get; set; }
+
+        public byte[] Cover { get; set; }
     }
 }
