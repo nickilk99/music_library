@@ -15,7 +15,6 @@ C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\bin\Debug\Entit
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\bin\Debug\EntityFramework.xml
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.csprojAssemblyReference.cache
-C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.FrmAddGenre.resources
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Properties.Resources.resources
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.csproj.GenerateResource.cache
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.csproj.CoreCompileInputs.cache
@@ -23,8 +22,6 @@ C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.exe
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.pdb
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.AlbumForm.resources
-C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Migrations.InitialCreate.resources
-C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Migrations.album.resources
 C:\Users\admin\source\repos\music_library\Music_Library\bin\Debug\Music_Library.exe.config
 C:\Users\admin\source\repos\music_library\Music_Library\bin\Debug\Music_Library.exe
 C:\Users\admin\source\repos\music_library\Music_Library\bin\Debug\Music_Library.pdb
@@ -127,3 +124,6 @@ C:\Users\nilkic03\source\repos\music_library5\Music_Library\obj\Debug\Music_Libr
 C:\Users\nilkic03\source\repos\music_library5\Music_Library\obj\Debug\Music_Library.csproj.CopyComplete
 C:\Users\nilkic03\source\repos\music_library5\Music_Library\obj\Debug\Music_Library.exe
 C:\Users\nilkic03\source\repos\music_library5\Music_Library\obj\Debug\Music_Library.pdb
+C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.ArtistForm.resources
+C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.GenreForm.resources
+C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Views.SongForm.resources

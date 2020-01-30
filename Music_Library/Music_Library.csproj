@@ -74,27 +74,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Utilities\GenreOperation.cs" />
-    <Compile Include="Migrations\202001302057449_MusicLibrary.cs" />
-    <Compile Include="Migrations\202001302057449_MusicLibrary.designer.cs">
-      <DependentUpon>202001302057449_MusicLibrary.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Album.cs" />
     <Compile Include="Utilities\AlbumOperation.cs" />
-    <Compile Include="Music_LibraryDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Music_LibraryDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Music_LibraryDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Music_LibraryDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Music_LibraryDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Music_LibraryDataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Utilities\SongOperation.cs" />
     <Compile Include="Views\ArtistForm.cs">
       <SubType>Form</SubType>
@@ -136,9 +117,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Music_Library_MusicLibraryContextDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Migrations\202001302057449_MusicLibrary.resx">
-      <DependentUpon>202001302057449_MusicLibrary.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,39 +138,6 @@
     <EmbeddedResource Include="Views\SongForm.resx">
       <DependentUpon>SongForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Music_LibraryDataSet.xsc">
-      <DependentUpon>Music_LibraryDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Music_LibraryDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Music_LibraryDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Music_LibraryDataSet.xss">
-      <DependentUpon>Music_LibraryDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="Music_LibraryDataSet1.xsc">
-      <DependentUpon>Music_LibraryDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Music_LibraryDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Music_LibraryDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Music_LibraryDataSet1.xss">
-      <DependentUpon>Music_LibraryDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Music_LibraryDataSet2.xsc">
-      <DependentUpon>Music_LibraryDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="Music_LibraryDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>Music_LibraryDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Music_LibraryDataSet2.xss">
-      <DependentUpon>Music_LibraryDataSet2.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

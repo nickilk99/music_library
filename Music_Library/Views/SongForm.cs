@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -97,6 +98,10 @@ namespace Music_Library.Views
 
         private void SongForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Songs' table. You can move, or remove it, as needed.
+            this.songsTableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.Songs);
+            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Songs' table. You can move, or remove it, as needed.
+            this.songsTableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.Songs);
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Albums' table. You can move, or remove it, as needed.
             this.albumsTableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.Albums);
             // TODO: This line of code loads data into the 'music_LibraryDataSet2.Genres' table. You can move, or remove it, as needed.
@@ -104,6 +109,33 @@ namespace Music_Library.Views
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Genres' table. You can move, or remove it, as needed.
             this.genresTableAdapter2.Fill(this._Music_Library_MusicLibraryContextDataSet.Genres);
 
+        }
+
+        private void buttonSave_Click_1(object sender, EventArgs e)
+        {
+            song.Title = textSongTitle.Text.Trim();
+            song.AlbumId = Convert.ToInt32(albumComboBox.SelectedValue);
+            song.GenreId = Convert.ToInt32(typeComboBox.SelectedValue);
+            using (MusicLibraryContext db = new MusicLibraryContext())
+            {
+
+
+                if (song.SongId == 0)
+                {
+                    db.Songs.Add(song);
+                }
+                else
+                {
+                    db.Entry(song).State = EntityState.Modified;
+                }
+                db.SaveChanges();
+                Clear();
+                PopulateDataGridView();
+                MessageBox.Show("Song entered successfully!");
+
+
+
+            }
         }
     }
 }

@@ -37,6 +37,12 @@
             this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.songDataGridView = new System.Windows.Forms.DataGridView();
+            this.songIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.albumIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.songsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._Music_Library_MusicLibraryContextDataSet = new Music_Library._Music_Library_MusicLibraryContextDataSet();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
@@ -46,19 +52,22 @@
             this.albumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.albumComboBox = new System.Windows.Forms.ComboBox();
             this.albumsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this._Music_Library_MusicLibraryContextDataSet = new Music_Library._Music_Library_MusicLibraryContextDataSet();
             this.genresTableAdapter2 = new Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters.GenresTableAdapter();
             this.tableAdapterManager1 = new Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters.TableAdapterManager();
             this.typeComboBox = new System.Windows.Forms.ComboBox();
             this.genresBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.albumsTableAdapter = new Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters.AlbumsTableAdapter();
+            this.musicLibraryMusicLibraryContextDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.songsTableAdapter = new Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters.SongsTableAdapter();
             typeLabel = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.songsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Music_Library_MusicLibraryContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Music_Library_MusicLibraryContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musicLibraryMusicLibraryContextDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // typeLabel
@@ -121,11 +130,53 @@
             // 
             // songDataGridView
             // 
+            this.songDataGridView.AutoGenerateColumns = false;
             this.songDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.songDataGridView.Location = new System.Drawing.Point(268, 170);
+            this.songDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.songIdDataGridViewTextBoxColumn,
+            this.titleDataGridViewTextBoxColumn,
+            this.albumIdDataGridViewTextBoxColumn,
+            this.genreIdDataGridViewTextBoxColumn});
+            this.songDataGridView.DataSource = this.songsBindingSource;
+            this.songDataGridView.Location = new System.Drawing.Point(299, 170);
             this.songDataGridView.Name = "songDataGridView";
-            this.songDataGridView.Size = new System.Drawing.Size(396, 138);
+            this.songDataGridView.Size = new System.Drawing.Size(476, 138);
             this.songDataGridView.TabIndex = 21;
+            // 
+            // songIdDataGridViewTextBoxColumn
+            // 
+            this.songIdDataGridViewTextBoxColumn.DataPropertyName = "SongId";
+            this.songIdDataGridViewTextBoxColumn.HeaderText = "SongId";
+            this.songIdDataGridViewTextBoxColumn.Name = "songIdDataGridViewTextBoxColumn";
+            this.songIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            // 
+            // albumIdDataGridViewTextBoxColumn
+            // 
+            this.albumIdDataGridViewTextBoxColumn.DataPropertyName = "AlbumId";
+            this.albumIdDataGridViewTextBoxColumn.HeaderText = "AlbumId";
+            this.albumIdDataGridViewTextBoxColumn.Name = "albumIdDataGridViewTextBoxColumn";
+            // 
+            // genreIdDataGridViewTextBoxColumn
+            // 
+            this.genreIdDataGridViewTextBoxColumn.DataPropertyName = "GenreId";
+            this.genreIdDataGridViewTextBoxColumn.HeaderText = "GenreId";
+            this.genreIdDataGridViewTextBoxColumn.Name = "genreIdDataGridViewTextBoxColumn";
+            // 
+            // songsBindingSource
+            // 
+            this.songsBindingSource.DataMember = "Songs";
+            this.songsBindingSource.DataSource = this._Music_Library_MusicLibraryContextDataSet;
+            // 
+            // _Music_Library_MusicLibraryContextDataSet
+            // 
+            this._Music_Library_MusicLibraryContextDataSet.DataSetName = "_Music_Library_MusicLibraryContextDataSet";
+            this._Music_Library_MusicLibraryContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // buttonCancel
             // 
@@ -135,6 +186,7 @@
             this.buttonCancel.TabIndex = 19;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonDelete
             // 
@@ -144,6 +196,7 @@
             this.buttonDelete.TabIndex = 18;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonSave
             // 
@@ -154,6 +207,7 @@
             this.buttonSave.TabIndex = 17;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click_1);
             // 
             // textSongTitle
             // 
@@ -200,11 +254,6 @@
             this.albumsBindingSource.DataMember = "Albums";
             this.albumsBindingSource.DataSource = this._Music_Library_MusicLibraryContextDataSet;
             // 
-            // _Music_Library_MusicLibraryContextDataSet
-            // 
-            this._Music_Library_MusicLibraryContextDataSet.DataSetName = "_Music_Library_MusicLibraryContextDataSet";
-            this._Music_Library_MusicLibraryContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // genresTableAdapter2
             // 
             this.genresTableAdapter2.ClearBeforeFill = true;
@@ -238,6 +287,15 @@
             // 
             this.albumsTableAdapter.ClearBeforeFill = true;
             // 
+            // musicLibraryMusicLibraryContextDataSetBindingSource
+            // 
+            this.musicLibraryMusicLibraryContextDataSetBindingSource.DataSource = this._Music_Library_MusicLibraryContextDataSet;
+            this.musicLibraryMusicLibraryContextDataSetBindingSource.Position = 0;
+            // 
+            // songsTableAdapter
+            // 
+            this.songsTableAdapter.ClearBeforeFill = true;
+            // 
             // SongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,10 +318,12 @@
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.songsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Music_Library_MusicLibraryContextDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Music_Library_MusicLibraryContextDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musicLibraryMusicLibraryContextDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +353,12 @@
         private System.Windows.Forms.BindingSource genresBindingSource4;
         private System.Windows.Forms.BindingSource albumsBindingSource;
         private _Music_Library_MusicLibraryContextDataSetTableAdapters.AlbumsTableAdapter albumsTableAdapter;
+        private System.Windows.Forms.BindingSource musicLibraryMusicLibraryContextDataSetBindingSource;
+        private System.Windows.Forms.BindingSource songsBindingSource;
+        private _Music_Library_MusicLibraryContextDataSetTableAdapters.SongsTableAdapter songsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn songIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn albumIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genreIdDataGridViewTextBoxColumn;
     }
 }
