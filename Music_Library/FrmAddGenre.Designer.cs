@@ -37,12 +37,12 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
             this.genreDataGridView = new System.Windows.Forms.DataGridView();
-            this.btnDeleteGenre = new System.Windows.Forms.Button();
-            this.btnsaveGenre = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.GenreId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnDeleteGenre = new System.Windows.Forms.Button();
+            this.btnsaveGenre = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genreDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).BeginInit();
@@ -79,6 +79,7 @@
             this.addAnAlbumToolStripMenuItem.Name = "addAnAlbumToolStripMenuItem";
             this.addAnAlbumToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.addAnAlbumToolStripMenuItem.Text = "Add an Album";
+            this.addAnAlbumToolStripMenuItem.Click += new System.EventHandler(this.addAnAlbumToolStripMenuItem_Click);
             // 
             // libraryToolStripMenuItem
             // 
@@ -117,6 +118,22 @@
             this.genreDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.genreDataGridView_CellContentClick);
             this.genreDataGridView.DoubleClick += new System.EventHandler(this.genreDataGridView_DoubleClick);
             // 
+            // GenreId
+            // 
+            this.GenreId.DataPropertyName = "GenreId";
+            this.GenreId.HeaderText = "GenreId";
+            this.GenreId.Name = "GenreId";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Type";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // genreBindingSource
+            // 
+            this.genreBindingSource.DataSource = typeof(Music_Library.Genre);
+            // 
             // btnDeleteGenre
             // 
             this.btnDeleteGenre.Location = new System.Drawing.Point(102, 198);
@@ -146,22 +163,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // GenreId
-            // 
-            this.GenreId.DataPropertyName = "GenreId";
-            this.GenreId.HeaderText = "GenreId";
-            this.GenreId.Name = "GenreId";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Type";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // genreBindingSource
-            // 
-            this.genreBindingSource.DataSource = typeof(Music_Library.Genre);
             // 
             // FrmAddGenre
             // 

@@ -28,6 +28,7 @@ namespace Music_Library
             //load categories from db
             _context.Genres.Load();
 
+
             //bind the data to the source 
             this.genreBindingSource.DataSource = _context.Genres.Local.ToBindingList();
 
@@ -147,6 +148,16 @@ namespace Music_Library
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void addAnAlbumToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (AlbumForm frm = new AlbumForm())
+            {
+                frm.ShowDialog();
+            }
 
         }
     }

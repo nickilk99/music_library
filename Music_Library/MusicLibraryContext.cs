@@ -10,5 +10,12 @@ namespace Music_Library
     class MusicLibraryContext : DbContext
     {
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Album> Albums { get; set; }
+
+        public MusicLibraryContext() : base("name = Music_Library_ConnectionString")
+        {
+
+        }
+
     }
 }
