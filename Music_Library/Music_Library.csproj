@@ -87,6 +87,7 @@
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Artist.cs" />
+    <Compile Include="ArtistOperation.cs" />
     <Compile Include="Views\GenreForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,8 +107,11 @@
     <Compile Include="Migrations\202001301622236_33.designer.cs">
       <DependentUpon>202001301622236_33.cs</DependentUpon>
     </Compile>
+    <Compile Include="IOperation.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MusicLibraryContext.cs" />
+    <Compile Include="MusicLibraryOperation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Song.cs" />
