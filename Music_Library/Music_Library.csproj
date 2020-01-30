@@ -73,13 +73,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GenreOperation.cs" />
+    <Compile Include="Utilities\GenreOperation.cs" />
     <Compile Include="Migrations\202001302057449_MusicLibrary.cs" />
     <Compile Include="Migrations\202001302057449_MusicLibrary.designer.cs">
       <DependentUpon>202001302057449_MusicLibrary.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Album.cs" />
-    <Compile Include="AlbumOperation.cs" />
+    <Compile Include="Utilities\AlbumOperation.cs" />
     <Compile Include="Music_LibraryDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,7 +95,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Music_LibraryDataSet2.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SongOperation.cs" />
+    <Compile Include="Utilities\SongOperation.cs" />
     <Compile Include="Views\ArtistForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,7 +109,7 @@
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Artist.cs" />
-    <Compile Include="ArtistOperation.cs" />
+    <Compile Include="Utilities\ArtistOperation.cs" />
     <Compile Include="Views\GenreForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,11 +117,11 @@
       <DependentUpon>GenreForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="IOperation.cs" />
-    <Compile Include="Message.cs" />
+    <Compile Include="Utilities\IOperation.cs" />
+    <Compile Include="Utilities\Message.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="MusicLibraryContext.cs" />
-    <Compile Include="MusicLibraryOperation.cs" />
+    <Compile Include="Utilities\MusicLibraryContext.cs" />
+    <Compile Include="Utilities\MusicLibraryOperation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Song.cs" />
