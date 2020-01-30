@@ -66,13 +66,14 @@ namespace Music_Library
                 dialog.Multiselect = false; // allow/deny user to upload more than one file at a time
                 if (dialog.ShowDialog() == DialogResult.OK) // if user clicked OK
                 {
-                    String path = dialog.FileName; // get name of file
+                    String path = dialog.FileName; // get name of file (or is it the full path?)
 
-                using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()))
-                {// do anything you want in this block
-                    MessageBox.Show(path);
-                    File.Copy(path, @"C:\Users\admin\Desktop\test\" + "test");
-                }
+                    using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()))
+                    {
+                        // do anything you want with the file in this block
+                        MessageBox.Show(path);
+                        File.Copy(path, @"C:\Users\admin\Desktop\test\" + "test");
+                    }
                 }
             }
         
