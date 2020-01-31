@@ -138,7 +138,7 @@ namespace Music_Library.Views
 
         private void buttonSave_Click_1(object sender, EventArgs e)
         {
-            song.Title = textSongTitle.Text.Trim();
+            song.SongTitle = textSongTitle.Text.Trim();
             song.AlbumId = Convert.ToInt32(albumComboBox.SelectedValue);
             song.GenreId = Convert.ToInt32(typeComboBox.SelectedValue);
             using (MusicLibraryContext db = new MusicLibraryContext())
