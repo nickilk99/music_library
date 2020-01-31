@@ -222,10 +222,7 @@ namespace Music_Library.Views
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            axWindowsMediaPlayer1.URL = textBoxPath.Text;
-        }
+
 
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
