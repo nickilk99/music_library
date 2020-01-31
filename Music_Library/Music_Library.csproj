@@ -81,6 +81,10 @@
     <Compile Include="Migrations\202001310027306_d.designer.cs">
       <DependentUpon>202001310027306_d.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001310101179_songtitle.cs" />
+    <Compile Include="Migrations\202001310101179_songtitle.designer.cs">
+      <DependentUpon>202001310101179_songtitle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\GenreOperation.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Utilities\AlbumOperation.cs" />
@@ -130,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001310027306_d.resx">
       <DependentUpon>202001310027306_d.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001310101179_songtitle.resx">
+      <DependentUpon>202001310101179_songtitle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>

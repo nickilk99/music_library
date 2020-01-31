@@ -1306,13 +1306,13 @@ namespace Music_Library {
             
             private global::System.Data.DataColumn columnSongId;
             
-            private global::System.Data.DataColumn columnTitle;
-            
             private global::System.Data.DataColumn columnAlbumId;
             
             private global::System.Data.DataColumn columnGenreId;
             
             private global::System.Data.DataColumn columnPath;
+            
+            private global::System.Data.DataColumn columnSongTitle;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1357,14 +1357,6 @@ namespace Music_Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
-                get {
-                    return this.columnTitle;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn AlbumIdColumn {
                 get {
                     return this.columnAlbumId;
@@ -1384,6 +1376,14 @@ namespace Music_Library {
             public global::System.Data.DataColumn PathColumn {
                 get {
                     return this.columnPath;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn SongTitleColumn {
+                get {
+                    return this.columnSongTitle;
                 }
             }
             
@@ -1424,19 +1424,19 @@ namespace Music_Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SongsRow AddSongsRow(string Title, AlbumsRow _parentAlbumsRowByFK_dbo_Songs_dbo_Albums_AlbumId, GenresRow _parentGenresRowByFK_dbo_Songs_dbo_Genres_GenreId, string Path) {
+            public SongsRow AddSongsRow(AlbumsRow _parentAlbumsRowByFK_dbo_Songs_dbo_Albums_AlbumId, GenresRow _parentGenresRowByFK_dbo_Songs_dbo_Genres_GenreId, string Path, string SongTitle) {
                 SongsRow rowSongsRow = ((SongsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Title,
                         null,
                         null,
-                        Path};
+                        Path,
+                        SongTitle};
                 if ((_parentAlbumsRowByFK_dbo_Songs_dbo_Albums_AlbumId != null)) {
-                    columnValuesArray[2] = _parentAlbumsRowByFK_dbo_Songs_dbo_Albums_AlbumId[0];
+                    columnValuesArray[1] = _parentAlbumsRowByFK_dbo_Songs_dbo_Albums_AlbumId[0];
                 }
                 if ((_parentGenresRowByFK_dbo_Songs_dbo_Genres_GenreId != null)) {
-                    columnValuesArray[3] = _parentGenresRowByFK_dbo_Songs_dbo_Genres_GenreId[0];
+                    columnValuesArray[2] = _parentGenresRowByFK_dbo_Songs_dbo_Genres_GenreId[0];
                 }
                 rowSongsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSongsRow);
@@ -1468,10 +1468,10 @@ namespace Music_Library {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnSongId = base.Columns["SongId"];
-                this.columnTitle = base.Columns["Title"];
                 this.columnAlbumId = base.Columns["AlbumId"];
                 this.columnGenreId = base.Columns["GenreId"];
                 this.columnPath = base.Columns["Path"];
+                this.columnSongTitle = base.Columns["SongTitle"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1479,14 +1479,14 @@ namespace Music_Library {
             private void InitClass() {
                 this.columnSongId = new global::System.Data.DataColumn("SongId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSongId);
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitle);
                 this.columnAlbumId = new global::System.Data.DataColumn("AlbumId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAlbumId);
                 this.columnGenreId = new global::System.Data.DataColumn("GenreId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGenreId);
                 this.columnPath = new global::System.Data.DataColumn("Path", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPath);
+                this.columnSongTitle = new global::System.Data.DataColumn("SongTitle", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSongTitle);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnSongId}, true));
                 this.columnSongId.AutoIncrement = true;
@@ -1495,10 +1495,10 @@ namespace Music_Library {
                 this.columnSongId.AllowDBNull = false;
                 this.columnSongId.ReadOnly = true;
                 this.columnSongId.Unique = true;
-                this.columnTitle.MaxLength = 2147483647;
                 this.columnAlbumId.AllowDBNull = false;
                 this.columnGenreId.AllowDBNull = false;
                 this.columnPath.MaxLength = 2147483647;
+                this.columnSongTitle.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1925,22 +1925,6 @@ namespace Music_Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Title {
-                get {
-                    try {
-                        return ((string)(this[this.tableSongs.TitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'Songs\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSongs.TitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int AlbumId {
                 get {
                     return ((int)(this[this.tableSongs.AlbumIdColumn]));
@@ -1979,6 +1963,22 @@ namespace Music_Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string SongTitle {
+                get {
+                    try {
+                        return ((string)(this[this.tableSongs.SongTitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SongTitle\' in table \'Songs\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSongs.SongTitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public AlbumsRow AlbumsRow {
                 get {
                     return ((AlbumsRow)(this.GetParentRow(this.Table.ParentRelations["FK_dbo.Songs_dbo.Albums_AlbumId"])));
@@ -2001,18 +2001,6 @@ namespace Music_Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsTitleNull() {
-                return this.IsNull(this.tableSongs.TitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetTitleNull() {
-                this[this.tableSongs.TitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsPathNull() {
                 return this.IsNull(this.tableSongs.PathColumn);
             }
@@ -2021,6 +2009,18 @@ namespace Music_Library {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetPathNull() {
                 this[this.tableSongs.PathColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsSongTitleNull() {
+                return this.IsNull(this.tableSongs.SongTitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetSongTitleNull() {
+                this[this.tableSongs.SongTitleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2295,14 +2295,14 @@ namespace Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GenreId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GenreId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Genres] ([Type]) VALUES (@Type);\r\nSELECT GenreId, Type FROM Ge" +
-                "nres WHERE (GenreId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Genres] ([Type]) VALUES (@Type);\nSELECT GenreId, Type FROM Gen" +
+                "res WHERE (GenreId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Genres] SET [Type] = @Type WHERE (([GenreId] = @Original_GenreId));" +
-                "\r\nSELECT GenreId, Type FROM Genres WHERE (GenreId = @GenreId)";
+                "\nSELECT GenreId, Type FROM Genres WHERE (GenreId = @GenreId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GenreId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GenreId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2605,8 +2605,8 @@ namespace Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Albums] ([AlbumTitle], [ArtistName], [Year], [Length]) VALUES " +
-                "(@AlbumTitle, @ArtistName, @Year, @Length);\r\nSELECT AlbumId, AlbumTitle, ArtistN" +
-                "ame, Year, Length FROM Albums WHERE (AlbumId = SCOPE_IDENTITY())";
+                "(@AlbumTitle, @ArtistName, @Year, @Length);\nSELECT AlbumId, AlbumTitle, ArtistNa" +
+                "me, Year, Length FROM Albums WHERE (AlbumId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AlbumTitle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlbumTitle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ArtistName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ArtistName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2941,8 +2941,8 @@ SELECT AlbumId, AlbumTitle, ArtistName, Year, Length FROM Albums WHERE (AlbumId 
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Artists] ([FirstName], [LastName], [Age]) VALUES (@FirstName, " +
-                "@LastName, @Age);\r\nSELECT ArtistId, FirstName, LastName, Age FROM Artists WHERE " +
-                "(ArtistId = SCOPE_IDENTITY())";
+                "@LastName, @Age);\nSELECT ArtistId, FirstName, LastName, Age FROM Artists WHERE (" +
+                "ArtistId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2950,9 +2950,9 @@ SELECT AlbumId, AlbumTitle, ArtistName, Year, Length FROM Albums WHERE (AlbumId 
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Artists] SET [FirstName] = @FirstName, [LastName] = @LastName, [Age" +
-                "] = @Age WHERE (([ArtistId] = @Original_ArtistId) AND ([Age] = @Original_Age));\r" +
-                "\nSELECT ArtistId, FirstName, LastName, Age FROM Artists WHERE (ArtistId = @Artis" +
-                "tId)";
+                "] = @Age WHERE (([ArtistId] = @Original_ArtistId) AND ([Age] = @Original_Age));\n" +
+                "SELECT ArtistId, FirstName, LastName, Age FROM Artists WHERE (ArtistId = @Artist" +
+                "Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3258,10 +3258,10 @@ SELECT AlbumId, AlbumTitle, ArtistName, Year, Length FROM Albums WHERE (AlbumId 
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Songs";
             tableMapping.ColumnMappings.Add("SongId", "SongId");
-            tableMapping.ColumnMappings.Add("Title", "Title");
             tableMapping.ColumnMappings.Add("AlbumId", "AlbumId");
             tableMapping.ColumnMappings.Add("GenreId", "GenreId");
             tableMapping.ColumnMappings.Add("Path", "Path");
+            tableMapping.ColumnMappings.Add("SongTitle", "SongTitle");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3273,23 +3273,23 @@ SELECT AlbumId, AlbumTitle, ArtistName, Year, Length FROM Albums WHERE (AlbumId 
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GenreId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GenreId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [Songs] ([Title], [AlbumId], [GenreId], [Path]) VALUES (@Title, @Albu" +
-                "mId, @GenreId, @Path);\r\nSELECT SongId, Title, AlbumId, GenreId, Path FROM Songs " +
-                "WHERE (SongId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Songs] ([AlbumId], [GenreId], [Path], [SongTitle]) VALUES (@AlbumId," +
+                " @GenreId, @Path, @SongTitle);\r\nSELECT SongId, AlbumId, GenreId, Path, SongTitle" +
+                " FROM Songs WHERE (SongId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AlbumId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlbumId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GenreId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GenreId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Path", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Path", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SongTitle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SongTitle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [Songs] SET [Title] = @Title, [AlbumId] = @AlbumId, [GenreId] = @GenreId, [Path] = @Path WHERE (([SongId] = @Original_SongId) AND ([AlbumId] = @Original_AlbumId) AND ([GenreId] = @Original_GenreId));
-SELECT SongId, Title, AlbumId, GenreId, Path FROM Songs WHERE (SongId = @SongId)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Songs] SET [AlbumId] = @AlbumId, [GenreId] = @GenreId, [Path] = @Path, [SongTitle] = @SongTitle WHERE (([SongId] = @Original_SongId) AND ([AlbumId] = @Original_AlbumId) AND ([GenreId] = @Original_GenreId));
+SELECT SongId, AlbumId, GenreId, Path, SongTitle FROM Songs WHERE (SongId = @SongId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AlbumId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlbumId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@GenreId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GenreId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Path", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Path", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SongTitle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SongTitle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_SongId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SongId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AlbumId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlbumId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GenreId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GenreId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3310,7 +3310,7 @@ SELECT SongId, Title, AlbumId, GenreId, Path FROM Songs WHERE (SongId = @SongId)
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT SongId, Title, AlbumId, GenreId, Path FROM Songs";
+            this._commandCollection[0].CommandText = "SELECT SongId, AlbumId, GenreId, Path, SongTitle FROM Songs";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3395,20 +3395,20 @@ SELECT SongId, Title, AlbumId, GenreId, Path FROM Songs WHERE (SongId = @SongId)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Title, int AlbumId, int GenreId, string Path) {
-            if ((Title == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+        public virtual int Insert(int AlbumId, int GenreId, string Path, string SongTitle) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(AlbumId));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(GenreId));
+            if ((Path == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Title));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Path));
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(AlbumId));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(GenreId));
-            if ((Path == null)) {
+            if ((SongTitle == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Path));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(SongTitle));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3430,20 +3430,20 @@ SELECT SongId, Title, AlbumId, GenreId, Path FROM Songs WHERE (SongId = @SongId)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, int AlbumId, int GenreId, string Path, int Original_SongId, int Original_AlbumId, int Original_GenreId, int SongId) {
-            if ((Title == null)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+        public virtual int Update(int AlbumId, int GenreId, string Path, string SongTitle, int Original_SongId, int Original_AlbumId, int Original_GenreId, int SongId) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(AlbumId));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(GenreId));
+            if ((Path == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Title));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Path));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(AlbumId));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(GenreId));
-            if ((Path == null)) {
+            if ((SongTitle == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Path));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(SongTitle));
             }
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_SongId));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_AlbumId));
@@ -3469,8 +3469,8 @@ SELECT SongId, Title, AlbumId, GenreId, Path FROM Songs WHERE (SongId = @SongId)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, int AlbumId, int GenreId, string Path, int Original_SongId, int Original_AlbumId, int Original_GenreId) {
-            return this.Update(Title, AlbumId, GenreId, Path, Original_SongId, Original_AlbumId, Original_GenreId, Original_SongId);
+        public virtual int Update(int AlbumId, int GenreId, string Path, string SongTitle, int Original_SongId, int Original_AlbumId, int Original_GenreId) {
+            return this.Update(AlbumId, GenreId, Path, SongTitle, Original_SongId, Original_AlbumId, Original_GenreId, Original_SongId);
         }
     }
     
