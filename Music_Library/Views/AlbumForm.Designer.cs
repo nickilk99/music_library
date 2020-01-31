@@ -42,6 +42,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvgAlbum = new System.Windows.Forms.DataGridView();
+            this.albumBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.addAGenreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addAnArtistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,11 +58,10 @@
             this.artistNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.albumBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dvgAlbum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource2)).BeginInit();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -184,6 +184,10 @@
             this.dvgAlbum.TabIndex = 12;
             this.dvgAlbum.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
+            // albumBindingSource2
+            // 
+            this.albumBindingSource2.DataSource = typeof(Music_Library.Album);
+            // 
             // menuStrip2
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -259,14 +263,13 @@
             // 
             // Cover
             // 
-            this.Cover.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Cover.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Cover.DataPropertyName = "Cover";
             this.Cover.HeaderText = "Cover";
             this.Cover.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
             this.Cover.MinimumWidth = 75;
             this.Cover.Name = "Cover";
             this.Cover.ReadOnly = true;
-            this.Cover.Width = 75;
             // 
             // albumIdDataGridViewTextBoxColumn
             // 
@@ -304,10 +307,6 @@
             this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
             this.lengthDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // albumBindingSource2
-            // 
-            this.albumBindingSource2.DataSource = typeof(Music_Library.Album);
-            // 
             // AlbumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,10 +333,10 @@
             this.Text = "Albums";
             this.Load += new System.EventHandler(this.AlbumForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvgAlbum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource2)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
