@@ -120,6 +120,7 @@
             // 
             // buttonDelete
             // 
+            this.buttonDelete.Enabled = false;
             this.buttonDelete.Location = new System.Drawing.Point(162, 337);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
@@ -150,6 +151,7 @@
             this.dataGridViewArtist.DataSource = this.artistBindingSource;
             this.dataGridViewArtist.Location = new System.Drawing.Point(386, 102);
             this.dataGridViewArtist.Name = "dataGridViewArtist";
+            this.dataGridViewArtist.ReadOnly = true;
             this.dataGridViewArtist.Size = new System.Drawing.Size(345, 258);
             this.dataGridViewArtist.TabIndex = 9;
             this.dataGridViewArtist.DoubleClick += new System.EventHandler(this.dataGridViewArtist_DoubleClick);
@@ -212,6 +214,7 @@
             this.artistIdDataGridViewTextBoxColumn.DataPropertyName = "ArtistId";
             this.artistIdDataGridViewTextBoxColumn.HeaderText = "ArtistId";
             this.artistIdDataGridViewTextBoxColumn.Name = "artistIdDataGridViewTextBoxColumn";
+            this.artistIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.artistIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // firstNameDataGridViewTextBoxColumn
@@ -219,18 +222,23 @@
             this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
             this.firstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.firstNameDataGridViewTextBoxColumn.Width = 101;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
             this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
             this.lastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ageDataGridViewTextBoxColumn
             // 
+            this.ageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
             this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
             this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // artistBindingSource
             // 
@@ -286,10 +294,10 @@
         private System.Windows.Forms.ToolStripMenuItem addAnAlbumToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem libraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addASongToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn artistIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
