@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
+using Music_Library.Views;
 
 namespace Music_Library
 {
@@ -162,6 +163,24 @@ namespace Music_Library
                 this.pictureBoxPhoto.ImageLocation = ofd.FileName;
             }
 
+        }
+
+        private void addAnArtistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (ArtistForm frm = new ArtistForm())
+            {
+                frm.ShowDialog();
+            }
+        }
+
+        private void addASongToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (SongForm frm = new SongForm())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }

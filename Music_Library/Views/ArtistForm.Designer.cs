@@ -46,11 +46,11 @@
             this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArtist)).BeginInit();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -120,6 +120,7 @@
             // 
             // buttonDelete
             // 
+            this.buttonDelete.Enabled = false;
             this.buttonDelete.Location = new System.Drawing.Point(162, 337);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
@@ -208,10 +209,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // artistBindingSource
-            // 
-            this.artistBindingSource.DataSource = typeof(Music_Library.Artist);
-            // 
             // artistIdDataGridViewTextBoxColumn
             // 
             this.artistIdDataGridViewTextBoxColumn.DataPropertyName = "ArtistId";
@@ -242,6 +239,10 @@
             this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
             this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
             this.ageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // artistBindingSource
+            // 
+            this.artistBindingSource.DataSource = typeof(Music_Library.Artist);
             // 
             // ArtistForm
             // 
