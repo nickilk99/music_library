@@ -213,6 +213,14 @@ namespace Music_Library.Views
             }
         }
 
+        private void libraryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            using (Library frm = new Library())
+            {
+                frm.ShowDialog();
+            }
+        }
     }
 
 }

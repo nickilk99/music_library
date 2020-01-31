@@ -38,13 +38,13 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
             this.genreDataGridView = new System.Windows.Forms.DataGridView();
+            this.GenreId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnDeleteGenre = new System.Windows.Forms.Button();
             this.btnsaveGenre = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.GenreId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genreDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).BeginInit();
@@ -99,6 +99,7 @@
             this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
             this.libraryToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.libraryToolStripMenuItem.Text = "Library";
+            this.libraryToolStripMenuItem.Click += new System.EventHandler(this.libraryToolStripMenuItem_Click);
             // 
             // txtType
             // 
@@ -130,6 +131,22 @@
             this.genreDataGridView.Size = new System.Drawing.Size(243, 220);
             this.genreDataGridView.TabIndex = 5;
             this.genreDataGridView.DoubleClick += new System.EventHandler(this.genreDataGridView_DoubleClick);
+            // 
+            // GenreId
+            // 
+            this.GenreId.DataPropertyName = "GenreId";
+            this.GenreId.HeaderText = "GenreId";
+            this.GenreId.Name = "GenreId";
+            this.GenreId.ReadOnly = true;
+            this.GenreId.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Type";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // genreBindingSource
             // 
@@ -168,22 +185,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // GenreId
-            // 
-            this.GenreId.DataPropertyName = "GenreId";
-            this.GenreId.HeaderText = "GenreId";
-            this.GenreId.Name = "GenreId";
-            this.GenreId.ReadOnly = true;
-            this.GenreId.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Type";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // GenreForm
             // 

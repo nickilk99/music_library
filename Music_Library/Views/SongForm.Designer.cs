@@ -61,6 +61,7 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBrowse = new System.Windows.Forms.Button();
             typeLabel = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).BeginInit();
@@ -123,10 +124,10 @@
             // 
             // libraryToolStripMenuItem
             // 
-            this.libraryToolStripMenuItem.Enabled = false;
             this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
             this.libraryToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.libraryToolStripMenuItem.Text = "Library";
+            this.libraryToolStripMenuItem.Click += new System.EventHandler(this.libraryToolStripMenuItem_Click);
             // 
             // titleDataGridViewTextBoxColumn
             // 
@@ -244,7 +245,7 @@
             // textBoxPath
             // 
             this.textBoxPath.AllowDrop = true;
-            this.textBoxPath.Location = new System.Drawing.Point(61, 184);
+            this.textBoxPath.Location = new System.Drawing.Point(61, 214);
             this.textBoxPath.Name = "textBoxPath";
             this.textBoxPath.Size = new System.Drawing.Size(205, 20);
             this.textBoxPath.TabIndex = 26;
@@ -329,11 +330,22 @@
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
             // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(60, 186);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 27;
+            this.btnBrowse.Text = "Browse...";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.ChooseFile);
+            // 
             // SongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.dataGridViewSong);
             this.Controls.Add(this.textBoxPath);
             this.Controls.Add(this.lblPath);
@@ -396,5 +408,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.Button btnBrowse;
     }
 }
