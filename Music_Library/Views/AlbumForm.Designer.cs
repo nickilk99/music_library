@@ -42,6 +42,12 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvgAlbum = new System.Windows.Forms.DataGridView();
+            this.Cover = new System.Windows.Forms.DataGridViewImageColumn();
+            this.albumIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.albumTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.artistNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.albumBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.addAGenreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,12 +58,6 @@
             this.lblPhoto = new System.Windows.Forms.Label();
             this.btnBrowse = new System.Windows.Forms.Button();
             this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
-            this.Cover = new System.Windows.Forms.DataGridViewImageColumn();
-            this.albumIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.albumTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.artistNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.yearDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lengthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dvgAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource2)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -184,83 +184,6 @@
             this.dvgAlbum.TabIndex = 12;
             this.dvgAlbum.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
-            // albumBindingSource2
-            // 
-            this.albumBindingSource2.DataSource = typeof(Music_Library.Album);
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addAGenreToolStripMenuItem,
-            this.addAnArtistToolStripMenuItem,
-            this.addAnAlbumToolStripMenuItem,
-            this.addASongToolStripMenuItem,
-            this.libraryToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip2.TabIndex = 13;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // addAGenreToolStripMenuItem
-            // 
-            this.addAGenreToolStripMenuItem.Name = "addAGenreToolStripMenuItem";
-            this.addAGenreToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
-            this.addAGenreToolStripMenuItem.Text = "Add a Genre";
-            this.addAGenreToolStripMenuItem.Click += new System.EventHandler(this.addAGenreToolStripMenuItem_Click);
-            // 
-            // addAnArtistToolStripMenuItem
-            // 
-            this.addAnArtistToolStripMenuItem.Name = "addAnArtistToolStripMenuItem";
-            this.addAnArtistToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.addAnArtistToolStripMenuItem.Text = "Add an Artist";
-            // 
-            // addAnAlbumToolStripMenuItem
-            // 
-            this.addAnAlbumToolStripMenuItem.Name = "addAnAlbumToolStripMenuItem";
-            this.addAnAlbumToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
-            this.addAnAlbumToolStripMenuItem.Text = "Add an Album";
-            // 
-            // addASongToolStripMenuItem
-            // 
-            this.addASongToolStripMenuItem.Name = "addASongToolStripMenuItem";
-            this.addASongToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
-            this.addASongToolStripMenuItem.Text = "Add a Song";
-            // 
-            // libraryToolStripMenuItem
-            // 
-            this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
-            this.libraryToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.libraryToolStripMenuItem.Text = "Library";
-            // 
-            // lblPhoto
-            // 
-            this.lblPhoto.AutoSize = true;
-            this.lblPhoto.Location = new System.Drawing.Point(37, 160);
-            this.lblPhoto.Name = "lblPhoto";
-            this.lblPhoto.Size = new System.Drawing.Size(35, 13);
-            this.lblPhoto.TabIndex = 14;
-            this.lblPhoto.Text = "Cover";
-            // 
-            // btnBrowse
-            // 
-            this.btnBrowse.Location = new System.Drawing.Point(105, 156);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowse.TabIndex = 15;
-            this.btnBrowse.Text = "Browse...";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
-            // 
-            // pictureBoxPhoto
-            // 
-            this.pictureBoxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPhoto.Location = new System.Drawing.Point(39, 199);
-            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
-            this.pictureBoxPhoto.Size = new System.Drawing.Size(250, 171);
-            this.pictureBoxPhoto.TabIndex = 16;
-            this.pictureBoxPhoto.TabStop = false;
-            // 
             // Cover
             // 
             this.Cover.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -306,6 +229,86 @@
             this.lengthDataGridViewTextBoxColumn.HeaderText = "Length";
             this.lengthDataGridViewTextBoxColumn.Name = "lengthDataGridViewTextBoxColumn";
             this.lengthDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // albumBindingSource2
+            // 
+            this.albumBindingSource2.DataSource = typeof(Music_Library.Album);
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addAGenreToolStripMenuItem,
+            this.addAnArtistToolStripMenuItem,
+            this.addAnAlbumToolStripMenuItem,
+            this.addASongToolStripMenuItem,
+            this.libraryToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip2.TabIndex = 13;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // addAGenreToolStripMenuItem
+            // 
+            this.addAGenreToolStripMenuItem.Name = "addAGenreToolStripMenuItem";
+            this.addAGenreToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.addAGenreToolStripMenuItem.Text = "Add a Genre";
+            this.addAGenreToolStripMenuItem.Click += new System.EventHandler(this.addAGenreToolStripMenuItem_Click);
+            // 
+            // addAnArtistToolStripMenuItem
+            // 
+            this.addAnArtistToolStripMenuItem.Name = "addAnArtistToolStripMenuItem";
+            this.addAnArtistToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.addAnArtistToolStripMenuItem.Text = "Add an Artist";
+            this.addAnArtistToolStripMenuItem.Click += new System.EventHandler(this.addAnArtistToolStripMenuItem_Click);
+            // 
+            // addAnAlbumToolStripMenuItem
+            // 
+            this.addAnAlbumToolStripMenuItem.Enabled = false;
+            this.addAnAlbumToolStripMenuItem.Name = "addAnAlbumToolStripMenuItem";
+            this.addAnAlbumToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.addAnAlbumToolStripMenuItem.Text = "Add an Album";
+            // 
+            // addASongToolStripMenuItem
+            // 
+            this.addASongToolStripMenuItem.Name = "addASongToolStripMenuItem";
+            this.addASongToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
+            this.addASongToolStripMenuItem.Text = "Add a Song";
+            this.addASongToolStripMenuItem.Click += new System.EventHandler(this.addASongToolStripMenuItem_Click);
+            // 
+            // libraryToolStripMenuItem
+            // 
+            this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
+            this.libraryToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.libraryToolStripMenuItem.Text = "Library";
+            // 
+            // lblPhoto
+            // 
+            this.lblPhoto.AutoSize = true;
+            this.lblPhoto.Location = new System.Drawing.Point(37, 160);
+            this.lblPhoto.Name = "lblPhoto";
+            this.lblPhoto.Size = new System.Drawing.Size(35, 13);
+            this.lblPhoto.TabIndex = 14;
+            this.lblPhoto.Text = "Cover";
+            // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(105, 156);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowse.TabIndex = 15;
+            this.btnBrowse.Text = "Browse...";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // pictureBoxPhoto
+            // 
+            this.pictureBoxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPhoto.Location = new System.Drawing.Point(39, 199);
+            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
+            this.pictureBoxPhoto.Size = new System.Drawing.Size(250, 171);
+            this.pictureBoxPhoto.TabIndex = 16;
+            this.pictureBoxPhoto.TabStop = false;
             // 
             // AlbumForm
             // 
