@@ -40,10 +40,10 @@ namespace Music_Library.Views
 
         void PopulateDataGridView()
         {
-            songDataGridView.AutoGenerateColumns = false;
+            songsDataGridView.AutoGenerateColumns = false;
             using (MusicLibraryContext ac = new MusicLibraryContext())
             {
-                songDataGridView.DataSource = ac.Songs.ToList<Song>();
+                songsDataGridView.DataSource = ac.Songs.ToList<Song>();
             }
 
         }
@@ -55,12 +55,23 @@ namespace Music_Library.Views
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("are you sure you want to delete? ", "crud operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                using (MusicLibraryContext ac = new MusicLibraryContext())
+                {
+                    var entry = ac.Entry(song);
 
-        }
-
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-
+                    if (entry.State == EntityState.Detached)
+                    {
+                        ac.Songs.Attach(song);
+                    }
+                    ac.Songs.Remove(song);
+                    ac.SaveChanges();
+                    PopulateDataGridView();
+                    Clear();
+                    MessageBox.Show("deleted successfuly");
+                }
+            }
         }
 
         private void addAGenreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,7 +118,7 @@ namespace Music_Library.Views
             else
                 e.Effect = DragDropEffects.None;
         }
-        
+
 
         private void txtFile_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
         {
@@ -118,9 +129,6 @@ namespace Music_Library.Views
 
         }
 
-
-
-
         private void SongForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Songs' table. You can move, or remove it, as needed.
@@ -130,43 +138,36 @@ namespace Music_Library.Views
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Albums' table. You can move, or remove it, as needed.
             this.albumsTableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.Albums);
             // TODO: This line of code loads data into the 'music_LibraryDataSet2.Genres' table. You can move, or remove it, as needed.
-
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Genres' table. You can move, or remove it, as needed.
             this.genresTableAdapter2.Fill(this._Music_Library_MusicLibraryContextDataSet.Genres);
-
         }
 
         private void buttonSave_Click_1(object sender, EventArgs e)
         {
-            song.SongTitle = textSongTitle.Text.Trim();
+            song.SongTitle = textSongTitle.Text;
             song.AlbumId = Convert.ToInt32(albumComboBox.SelectedValue);
             song.GenreId = Convert.ToInt32(typeComboBox.SelectedValue);
-            using (MusicLibraryContext db = new MusicLibraryContext())
+
+            using (MusicLibraryContext ac = new MusicLibraryContext())
             {
-
-
                 if (song.SongId == 0)
                 {
-                    db.Songs.Add(song);
+                    ac.Songs.Add(song);
                 }
                 else
                 {
-                    db.Entry(song).State = EntityState.Modified;
+                    ac.Entry(song).State = EntityState.Modified;
                 }
-                db.SaveChanges();
-                Clear();
-                PopulateDataGridView();
-                MessageBox.Show("Song entered successfully!");
 
-
-
+                ac.SaveChanges();
             }
+
+            Clear();
+            PopulateDataGridView();
+            MessageBox.Show("Submitted successfuly");
         }
 
-
         private void ChooseFile(object sender, EventArgs e)
-
-
         {
             OpenFileDialog dialog = new OpenFileDialog();
             //dialog.Filter = "Text files | *.txt"; // file types, that will be allowed to upload
@@ -180,11 +181,28 @@ namespace Music_Library.Views
                     // do anything you want with the file in this block
                     song.Path = "C:\\Users\\1295607\\Desktop\\songs" + System.IO.Path.GetFileName(path);
                     txtFile.Text = path;
-                    
                 }
             }
         }
 
+        private void songsDataGridView_DoubleClick(object sender, EventArgs e)
+        {
+            if (songsDataGridView.CurrentRow.Index != -1)
+            {
+                song.SongId = Convert.ToInt32(songsDataGridView.CurrentRow.Cells["songIddataGridViewTextBoxColumn1"].Value);
+
+                using (MusicLibraryContext ac = new MusicLibraryContext())
+                {
+                    song = ac.Songs.Where(x => x.SongId == song.SongId).FirstOrDefault();
+                    textSongTitle.Text = song.SongTitle;
+                    song.AlbumId = Convert.ToInt32(albumComboBox.SelectedValue);
+                    song.GenreId = Convert.ToInt32(typeComboBox.SelectedValue);
+
+                }
+                buttonSave.Text = "Update";
+                buttonDelete.Enabled = true;
+            }
+        }
     }
 
 }
