@@ -11,6 +11,9 @@ namespace Music_Library
     {
 
         public int SongId { get; set; }
+        
+        public string Path { get; set; }
+
 
         public string SongTitle { get; set; }
 
@@ -18,8 +21,6 @@ namespace Music_Library
         public virtual Album Album { get; set; }
         public int GenreId { get; set; }
         public virtual Genre Genre { get; set; }
-
-        public string Path { get; set; }
 
     }
 }
