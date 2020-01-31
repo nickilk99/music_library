@@ -38,17 +38,17 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.lblType = new System.Windows.Forms.Label();
             this.genreDataGridView = new System.Windows.Forms.DataGridView();
+            this.GenreId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnDeleteGenre = new System.Windows.Forms.Button();
             this.btnsaveGenre = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.GenreId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genreBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genreDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -133,6 +133,26 @@
             this.genreDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.genreDataGridView_CellContentClick);
             this.genreDataGridView.DoubleClick += new System.EventHandler(this.genreDataGridView_DoubleClick);
             // 
+            // GenreId
+            // 
+            this.GenreId.DataPropertyName = "GenreId";
+            this.GenreId.HeaderText = "GenreId";
+            this.GenreId.Name = "GenreId";
+            this.GenreId.ReadOnly = true;
+            this.GenreId.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Type";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // genreBindingSource
+            // 
+            this.genreBindingSource.DataSource = typeof(Music_Library.Genre);
+            // 
             // btnDeleteGenre
             // 
             this.btnDeleteGenre.Location = new System.Drawing.Point(196, 309);
@@ -165,27 +185,8 @@
             // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
-            // 
-            // GenreId
-            // 
-            this.GenreId.DataPropertyName = "GenreId";
-            this.GenreId.HeaderText = "GenreId";
-            this.GenreId.Name = "GenreId";
-            this.GenreId.ReadOnly = true;
-            this.GenreId.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Type";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // genreBindingSource
-            // 
-            this.genreBindingSource.DataSource = typeof(Music_Library.Genre);
             // 
             // GenreForm
             // 
@@ -205,8 +206,8 @@
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.genreDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genreBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -102,27 +102,29 @@ namespace Music_Library
         private void btnsaveGenre_Click(object sender, EventArgs e)
         {
             genre.Type = txtType.Text.Trim();
+            if (Validate(txtType.Text)) {
+                int tempNum;
+                if (genre.GenreId == 0)
+                {
+                    tempNum = MusicLibraryOperation.createOperation(TYPE.GENRE).Add(genre);
+                }
+                else
+                {
+                    tempNum = MusicLibraryOperation.createOperation(TYPE.GENRE).Update(genre);
+                }
 
-            int tempNum;
-            if (genre.GenreId == 0)
-            {
-                tempNum = MusicLibraryOperation.createOperation(TYPE.GENRE).Add(genre);
-            }
-            else
-            {
-                tempNum = MusicLibraryOperation.createOperation(TYPE.GENRE).Update(genre);
+                if (tempNum > 0)
+                {
+                    Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
+                }
+                else
+                {
+                    Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
+                }
+                Clear();
+                PopulateGenreList();
             }
 
-            if (tempNum > 0)
-            {
-                Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
-            }
-            else
-            {
-                Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
-            }
-            Clear();
-            PopulateGenreList();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

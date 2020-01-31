@@ -55,13 +55,13 @@
             this.vWSongAlbum4BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.vWSongAlbum4TableAdapter = new Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters.VWSongAlbum4TableAdapter();
             this.vWSongAlbum4DataGridView = new System.Windows.Forms.DataGridView();
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.txtPlay = new System.Windows.Forms.TextBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnPlay = new System.Windows.Forms.Button();
-            this.txtPlay = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vWSongAlbum2BindingSource)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -227,36 +227,6 @@
             this.vWSongAlbum4DataGridView.TabIndex = 4;
             this.vWSongAlbum4DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vWSongAlbum4DataGridView_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "SongTitle";
-            this.dataGridViewTextBoxColumn1.HeaderText = "SongTitle";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "AlbumTitle";
-            this.dataGridViewTextBoxColumn2.HeaderText = "AlbumTitle";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "Cover";
-            this.dataGridViewImageColumn1.HeaderText = "Cover";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ArtistName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "ArtistName";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Path";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Path";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
             // btnPlay
             // 
             this.btnPlay.Location = new System.Drawing.Point(13, 266);
@@ -273,6 +243,38 @@
             this.txtPlay.Name = "txtPlay";
             this.txtPlay.Size = new System.Drawing.Size(100, 20);
             this.txtPlay.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "SongTitle";
+            this.dataGridViewTextBoxColumn1.HeaderText = "SongTitle";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "AlbumTitle";
+            this.dataGridViewTextBoxColumn2.HeaderText = "AlbumTitle";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "Cover";
+            this.dataGridViewImageColumn1.HeaderText = "Cover";
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ArtistName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "ArtistName";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Path";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Path";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // Library
             // 
@@ -333,12 +335,12 @@
         private System.Windows.Forms.BindingSource vWSongAlbum4BindingSource;
         private _Music_Library_MusicLibraryContextDataSetTableAdapters.VWSongAlbum4TableAdapter vWSongAlbum4TableAdapter;
         private System.Windows.Forms.DataGridView vWSongAlbum4DataGridView;
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.TextBox txtPlay;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.Button btnPlay;
-        private System.Windows.Forms.TextBox txtPlay;
     }
 }

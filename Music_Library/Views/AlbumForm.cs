@@ -26,6 +26,8 @@ namespace Music_Library
 
         private void AlbumForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Artists' table. You can move, or remove it, as needed.
+            this.artistsTableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.Artists);
             //dvgAlbum.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dvgAlbum.RowTemplate.Height = 75;
             Clear();
@@ -68,34 +70,39 @@ namespace Music_Library
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            album.AlbumTitle = txtAlbumTitle.Text;
-            album.ArtistName = txtArtistName.Text;
-            album.Year = Convert.ToInt32(txtYear.Text);
-            album.Length = Convert.ToInt32(txtLength.Text);
-            album.Cover = ConvertFileToByte(this.pictureBoxPhoto.ImageLocation);
+
+            if (Validate(txtAlbumTitle.Text) && Validate(txtLength.Text) && Validate(txtYear.Text) && Validate(artistsComboBox.Text) && Validate(pictureBoxPhoto.ImageLocation)) {
+                album.AlbumTitle = txtAlbumTitle.Text;
+                album.ArtistName = artistsComboBox.Text;
+                album.Year = Convert.ToInt32(txtYear.Text);
+                album.Length = Convert.ToInt32(txtLength.Text);
+                album.Cover = ConvertFileToByte(this.pictureBoxPhoto.ImageLocation);
 
 
 
-            int tempNum;
-            if (album.AlbumId== 0)
-            {
-                tempNum = MusicLibraryOperation.createOperation(TYPE.ALBUM).Add(album);
-            }
-            else
-            {
-                tempNum = MusicLibraryOperation.createOperation(TYPE.ALBUM).Update(album);
+                int tempNum;
+                if (album.AlbumId == 0)
+                {
+                    tempNum = MusicLibraryOperation.createOperation(TYPE.ALBUM).Add(album);
+                }
+                else
+                {
+                    tempNum = MusicLibraryOperation.createOperation(TYPE.ALBUM).Update(album);
+                }
+
+                if (tempNum > 0)
+                {
+                    Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
+                }
+                else
+                {
+                    Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
+                }
+                Clear();
+                PopulateDataGridView();
+
             }
 
-            if (tempNum > 0)
-            {
-                Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
-            }
-            else
-            {
-                Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
-            }
-            Clear();
-            PopulateDataGridView();
         }
 
 
@@ -112,7 +119,7 @@ namespace Music_Library
 
         void Clear()
         {
-            txtAlbumTitle.Text = txtArtistName.Text = txtLength.Text = txtYear.Text = "";
+            txtAlbumTitle.Text = artistsComboBox.Text = txtLength.Text = txtYear.Text = "";
             pictureBoxPhoto.Image = null;
             btnSave.Text = "Save";
             btnDelete.Enabled = false;
@@ -132,7 +139,7 @@ namespace Music_Library
                     return;
                 }
                 txtAlbumTitle.Text = album.AlbumTitle;
-                txtArtistName.Text = album.ArtistName;
+                artistsComboBox.Text = album.ArtistName;
                 txtYear.Text = Convert.ToString(album.Year);
                 txtLength.Text = Convert.ToString(album.Length);
                 var img = new MemoryStream(album.Cover);
@@ -161,6 +168,7 @@ namespace Music_Library
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 this.pictureBoxPhoto.ImageLocation = ofd.FileName;
+                
             }
 
         }
@@ -191,5 +199,21 @@ namespace Music_Library
                 frm.ShowDialog();
             }
         }
+
+        private bool Validate(String txt)
+        {
+            if (String.IsNullOrEmpty(txt))
+            {
+                errorProvider1.SetError(txtAlbumTitle, "Please enter data");
+                errorProvider1.SetError(txtYear, "Please enter data");
+                errorProvider1.SetError(txtLength, "Please enter data");
+                errorProvider1.SetError(artistsComboBox, "Please enter data");
+                errorProvider1.SetError(pictureBoxPhoto, "Please select a photo");
+
+                return false;
+            }
+            return true;
+        }
+
     }
 }

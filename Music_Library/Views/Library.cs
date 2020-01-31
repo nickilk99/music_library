@@ -12,8 +12,6 @@ namespace Music_Library.Views
 {
     public partial class Library : Form
     {
-
-
         public Library()
         {
             InitializeComponent();
@@ -30,6 +28,8 @@ namespace Music_Library.Views
 
         private void Library_Load(object sender, EventArgs e)
         {
+            vWSongAlbum4DataGridView.RowTemplate.Height = 75;
+
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.VWSongAlbum4' table. You can move, or remove it, as needed.
             this.vWSongAlbum4TableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.VWSongAlbum4);
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.VWSongAlbum3' table. You can move, or remove it, as needed.

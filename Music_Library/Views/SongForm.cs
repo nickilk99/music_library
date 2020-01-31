@@ -72,31 +72,35 @@ namespace Music_Library.Views
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            if (Validate(textBoxSongTitle.Text) && Validate(comboBoxGenre.Text) && Validate(comboBoxAlbum.Text) && Validate(textBoxPath.Text)) {
 
-            song.SongTitle = textBoxSongTitle.Text.Trim();
-            song.AlbumId = Convert.ToInt32(comboBoxAlbum.SelectedValue);
-            song.GenreId = Convert.ToInt32(comboBoxGenre.SelectedValue);
+                song.SongTitle = textBoxSongTitle.Text.Trim();
+                song.AlbumId = Convert.ToInt32(comboBoxAlbum.SelectedValue);
+                song.GenreId = Convert.ToInt32(comboBoxGenre.SelectedValue);
 
-            int tempNum;
-            if (song.SongId == 0)
-            {
-                tempNum = MusicLibraryOperation.createOperation(TYPE.SONG).Add(song);
-            }
-            else
-            {
-                tempNum = MusicLibraryOperation.createOperation(TYPE.SONG).Update(song);
+                int tempNum;
+                if (song.SongId == 0)
+                {
+                    tempNum = MusicLibraryOperation.createOperation(TYPE.SONG).Add(song);
+                }
+                else
+                {
+                    tempNum = MusicLibraryOperation.createOperation(TYPE.SONG).Update(song);
+                }
+
+                if (tempNum > 0)
+                {
+                    Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
+                }
+                else
+                {
+                    Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
+                }
+                Clear();
+                PopulateDataGridView();
             }
 
-            if (tempNum > 0)
-            {
-                Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
-            }
-            else
-            {
-                Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
-            }
-            Clear();
-            PopulateDataGridView();
+
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -227,6 +231,19 @@ namespace Music_Library.Views
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private bool Validate(string txt)
+        {
+            if (String.IsNullOrEmpty(txt))
+            {
+                errorProvider1.SetError(textBoxSongTitle, "Please enter data");
+                errorProvider1.SetError(comboBoxGenre, "Please enter data");
+                errorProvider1.SetError(comboBoxAlbum, "Please enter data");
+                errorProvider1.SetError(textBoxPath, "Please enter data");
+                return false;
+            }
+            return true;
         }
     }
 
