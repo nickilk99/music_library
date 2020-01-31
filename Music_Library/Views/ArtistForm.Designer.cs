@@ -154,6 +154,7 @@
             this.dataGridViewArtist.ReadOnly = true;
             this.dataGridViewArtist.Size = new System.Drawing.Size(345, 258);
             this.dataGridViewArtist.TabIndex = 9;
+            this.dataGridViewArtist.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewArtist_CellContentClick);
             this.dataGridViewArtist.DoubleClick += new System.EventHandler(this.dataGridViewArtist_DoubleClick);
             // 
             // menuStrip2

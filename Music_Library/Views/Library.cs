@@ -12,9 +12,12 @@ namespace Music_Library.Views
 {
     public partial class Library : Form
     {
+
+
         public Library()
         {
             InitializeComponent();
+
         }
 
         private void songsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -27,8 +30,11 @@ namespace Music_Library.Views
 
         private void Library_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.VWSongAlbum4' table. You can move, or remove it, as needed.
+            this.vWSongAlbum4TableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.VWSongAlbum4);
+            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.VWSongAlbum3' table. You can move, or remove it, as needed.
+            this.vWSongAlbum3TableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.VWSongAlbum3);
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet1.VWSongAlbum2' table. You can move, or remove it, as needed.
-            this.vWSongAlbum2TableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet1.VWSongAlbum2);
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.VWSongAlbum1' table. You can move, or remove it, as needed.
             this.vWSongAlbum1TableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.VWSongAlbum1);
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.VWSongAlbum' table. You can move, or remove it, as needed.
@@ -82,6 +88,25 @@ namespace Music_Library.Views
             {
                 frm.ShowDialog();
             }
+        }
+
+        private void vWSongAlbum2DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string path = Convert.ToString(vWSongAlbum4DataGridView.CurrentRow.Cells["Path"].Value);
+            WMP.URL = @path;
+        }
+
+        private void vWSongAlbum4DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string path = Convert.ToString(vWSongAlbum4DataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn4"].Value);
+            WMP.URL = @path;
+            WMP.currentPlaylist = WMP.mediaCollection.getByName(path);
+            MessageBox.Show(path);
+        }
+
+        private void WMP_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

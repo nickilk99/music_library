@@ -175,5 +175,10 @@ namespace Music_Library
                 frm.ShowDialog();
             }
         }
+
+        private void genreDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

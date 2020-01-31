@@ -219,5 +219,10 @@ namespace Music_Library
                 errorProvider.SetError(textBox, null);
             }
         }
+
+        private void dataGridViewArtist_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

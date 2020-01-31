@@ -271,6 +271,46 @@ SELECT SongId, AlbumId, GenreId, Path, SongTitle FROM Songs WHERE (SongId = @Son
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VWSongAlbum3TableAdapter" GeneratorDataComponentClassName="VWSongAlbum3TableAdapter" Name="VWSongAlbum3" UserDataComponentName="VWSongAlbum3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="012nilki140039\localdb#478b9efd.Music_Library.MusicLibraryContext.dbo" DbObjectName="[Music_Library.MusicLibraryContext].dbo.VWSongAlbum" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SongTitle, AlbumTitle, Cover, ArtistName, Path FROM dbo.VWSongAlbum</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SongTitle" DataSetColumn="SongTitle" />
+              <Mapping SourceColumn="AlbumTitle" DataSetColumn="AlbumTitle" />
+              <Mapping SourceColumn="Cover" DataSetColumn="Cover" />
+              <Mapping SourceColumn="ArtistName" DataSetColumn="ArtistName" />
+              <Mapping SourceColumn="Path" DataSetColumn="Path" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VWSongAlbum4TableAdapter" GeneratorDataComponentClassName="VWSongAlbum4TableAdapter" Name="VWSongAlbum4" UserDataComponentName="VWSongAlbum4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="012nilki140039\localdb#478b9efd.Music_Library.MusicLibraryContext.dbo" DbObjectName="[Music_Library.MusicLibraryContext].dbo.VWSongAlbum" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT SongTitle, AlbumTitle, Cover, ArtistName, Path FROM dbo.VWSongAlbum</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SongTitle" DataSetColumn="SongTitle" />
+              <Mapping SourceColumn="AlbumTitle" DataSetColumn="AlbumTitle" />
+              <Mapping SourceColumn="Cover" DataSetColumn="Cover" />
+              <Mapping SourceColumn="ArtistName" DataSetColumn="ArtistName" />
+              <Mapping SourceColumn="Path" DataSetColumn="Path" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -404,6 +444,76 @@ SELECT SongId, AlbumId, GenreId, Path, SongTitle FROM Songs WHERE (SongId = @Son
               </xs:element>
               <xs:element name="Cover" msprop:Generator_ColumnVarNameInTable="columnCover" msprop:Generator_ColumnPropNameInRow="Cover" msprop:Generator_ColumnPropNameInTable="CoverColumn" msprop:Generator_UserColumnName="Cover" type="xs:base64Binary" minOccurs="0" />
               <xs:element name="ArtistName" msprop:Generator_ColumnVarNameInTable="columnArtistName" msprop:Generator_ColumnPropNameInRow="ArtistName" msprop:Generator_ColumnPropNameInTable="ArtistNameColumn" msprop:Generator_UserColumnName="ArtistName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VWSongAlbum3" msprop:Generator_TableClassName="VWSongAlbum3DataTable" msprop:Generator_TableVarName="tableVWSongAlbum3" msprop:Generator_TablePropName="VWSongAlbum3" msprop:Generator_RowDeletingName="VWSongAlbum3RowDeleting" msprop:Generator_RowChangingName="VWSongAlbum3RowChanging" msprop:Generator_RowEvHandlerName="VWSongAlbum3RowChangeEventHandler" msprop:Generator_RowDeletedName="VWSongAlbum3RowDeleted" msprop:Generator_UserTableName="VWSongAlbum3" msprop:Generator_RowChangedName="VWSongAlbum3RowChanged" msprop:Generator_RowEvArgName="VWSongAlbum3RowChangeEvent" msprop:Generator_RowClassName="VWSongAlbum3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SongTitle" msprop:Generator_ColumnVarNameInTable="columnSongTitle" msprop:Generator_ColumnPropNameInRow="SongTitle" msprop:Generator_ColumnPropNameInTable="SongTitleColumn" msprop:Generator_UserColumnName="SongTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlbumTitle" msprop:Generator_ColumnVarNameInTable="columnAlbumTitle" msprop:Generator_ColumnPropNameInRow="AlbumTitle" msprop:Generator_ColumnPropNameInTable="AlbumTitleColumn" msprop:Generator_UserColumnName="AlbumTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cover" msprop:Generator_ColumnVarNameInTable="columnCover" msprop:Generator_ColumnPropNameInRow="Cover" msprop:Generator_ColumnPropNameInTable="CoverColumn" msprop:Generator_UserColumnName="Cover" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="ArtistName" msprop:Generator_ColumnVarNameInTable="columnArtistName" msprop:Generator_ColumnPropNameInRow="ArtistName" msprop:Generator_ColumnPropNameInTable="ArtistNameColumn" msprop:Generator_UserColumnName="ArtistName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Path" msprop:Generator_ColumnVarNameInTable="columnPath" msprop:Generator_ColumnPropNameInRow="Path" msprop:Generator_ColumnPropNameInTable="PathColumn" msprop:Generator_UserColumnName="Path" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="VWSongAlbum4" msprop:Generator_TableClassName="VWSongAlbum4DataTable" msprop:Generator_TableVarName="tableVWSongAlbum4" msprop:Generator_TablePropName="VWSongAlbum4" msprop:Generator_RowDeletingName="VWSongAlbum4RowDeleting" msprop:Generator_RowChangingName="VWSongAlbum4RowChanging" msprop:Generator_RowEvHandlerName="VWSongAlbum4RowChangeEventHandler" msprop:Generator_RowDeletedName="VWSongAlbum4RowDeleted" msprop:Generator_UserTableName="VWSongAlbum4" msprop:Generator_RowChangedName="VWSongAlbum4RowChanged" msprop:Generator_RowEvArgName="VWSongAlbum4RowChangeEvent" msprop:Generator_RowClassName="VWSongAlbum4Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SongTitle" msprop:Generator_ColumnVarNameInTable="columnSongTitle" msprop:Generator_ColumnPropNameInRow="SongTitle" msprop:Generator_ColumnPropNameInTable="SongTitleColumn" msprop:Generator_UserColumnName="SongTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AlbumTitle" msprop:Generator_ColumnVarNameInTable="columnAlbumTitle" msprop:Generator_ColumnPropNameInRow="AlbumTitle" msprop:Generator_ColumnPropNameInTable="AlbumTitleColumn" msprop:Generator_UserColumnName="AlbumTitle" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cover" msprop:Generator_ColumnVarNameInTable="columnCover" msprop:Generator_ColumnPropNameInRow="Cover" msprop:Generator_ColumnPropNameInTable="CoverColumn" msprop:Generator_UserColumnName="Cover" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="ArtistName" msprop:Generator_ColumnVarNameInTable="columnArtistName" msprop:Generator_ColumnPropNameInRow="ArtistName" msprop:Generator_ColumnPropNameInTable="ArtistNameColumn" msprop:Generator_UserColumnName="ArtistName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Path" msprop:Generator_ColumnVarNameInTable="columnPath" msprop:Generator_ColumnPropNameInRow="Path" msprop:Generator_ColumnPropNameInTable="PathColumn" msprop:Generator_UserColumnName="Path" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
