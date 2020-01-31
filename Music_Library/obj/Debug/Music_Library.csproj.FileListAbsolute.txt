@@ -129,4 +129,4 @@ C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Views.SongForm.resources
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Migrations.rtwet.resources
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Migrations.d.resources
-C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Migrations.fe.resources
+C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Migrations.songtitle.resources
