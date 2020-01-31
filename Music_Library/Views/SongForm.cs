@@ -16,36 +16,53 @@ namespace Music_Library.Views
 {
     public partial class SongForm : Form
     {
+        MusicLibraryContext musicLibraryContext;
         Song song = new Song();
         public SongForm()
         {
             InitializeComponent();
-            this.txtFile.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFile_DragDrop);
-            this.txtFile.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFile_DragEnter);
+            this.textBoxPath.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFile_DragDrop);
+            this.textBoxPath.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFile_DragEnter);
         }
 
-        private void FrmAddSong_Load(object sender, EventArgs e)
+        protected override void OnLoad(EventArgs e)
         {
-            Clear();
+            base.OnLoad(e);
+            musicLibraryContext = new MusicLibraryContext();
+            this.albumBindingSource.DataSource = musicLibraryContext.Albums.Local.ToBindingList();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            this.musicLibraryContext.Dispose();
+        }
+
+        private void SongForm_Load(object sender, EventArgs e)
+        {
             PopulateDataGridView();
         }
 
-        void Clear()
+        private void PopulateDataGridView()
         {
-            textSongTitle.Text = "";
+            dataGridViewSong.AutoGenerateColumns = false;
+            using (MusicLibraryContext musicLibraryContext = new MusicLibraryContext())
+            {
+                dataGridViewSong.DataSource = musicLibraryContext.Songs.ToList<Song>();
+                comboBoxAlbum.DataSource = musicLibraryContext.Albums.ToList<Album>();
+                comboBoxGenre.DataSource = musicLibraryContext.Genres.ToList<Genre>();
+            }
+        }
+
+        private void Clear()
+        {
+            textBoxSongTitle.Text = "";
+            comboBoxAlbum.SelectedValue = 0;
+            comboBoxGenre.SelectedValue = 0;
+            textBoxPath.Text = "";
             buttonSave.Text = "Save";
             buttonDelete.Enabled = false;
             song.SongId = 0;
-        }
-
-        void PopulateDataGridView()
-        {
-            songDataGridView.AutoGenerateColumns = false;
-            using (MusicLibraryContext ac = new MusicLibraryContext())
-            {
-                songDataGridView.DataSource = ac.Songs.ToList<Song>();
-            }
-
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -53,14 +70,71 @@ namespace Music_Library.Views
             Clear();
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonSave_Click(object sender, EventArgs e)
         {
 
+            song.SongTitle = textBoxSongTitle.Text.Trim();
+            song.AlbumId = Convert.ToInt32(comboBoxAlbum.SelectedValue);
+            song.GenreId = Convert.ToInt32(comboBoxGenre.SelectedValue);
+
+            int tempNum;
+            if (song.SongId == 0)
+            {
+                tempNum = MusicLibraryOperation.createOperation(TYPE.SONG).Add(song);
+            }
+            else
+            {
+                tempNum = MusicLibraryOperation.createOperation(TYPE.SONG).Update(song);
+            }
+
+            if (tempNum > 0)
+            {
+                Message.show("Submitted successfully.", MESSAGE_TYPE.SUCCESS);
+            }
+            else
+            {
+                Message.show("Submission Failed.", MESSAGE_TYPE.FAILURE);
+            }
+            Clear();
+            PopulateDataGridView();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (Message.show("Are you sure you want to delete?", MESSAGE_TYPE.ADVISORY) == DialogResult.Yes)
+            {
+                int tempNum = MusicLibraryOperation.createOperation(TYPE.SONG).Delete(song);
+                if (tempNum > 0)
+                {
+                    Message.show("Deleted successfully.", MESSAGE_TYPE.SUCCESS);
+                }
+                else
+                {
+                    Message.show("Failed to delete.", MESSAGE_TYPE.FAILURE);
+                }
+                PopulateDataGridView();
+                Clear();
+            }
+        }
+
+        private void dataGridViewSong_DoubleClick(object sender, EventArgs e)
+        {
+            if (dataGridViewSong.CurrentRow.Index != -1)
+            {
+                int tempNum = Convert.ToInt32(dataGridViewSong.CurrentRow.Cells["songIdDataGridViewTextBoxColumn"].Value);
+                song = (Song)MusicLibraryOperation.createOperation(TYPE.SONG).Get(tempNum);
+                if (song == null)
+                {
+                    Message.show("Could not find this information.", MESSAGE_TYPE.FAILURE);
+                    return;
+                }
+                textBoxSongTitle.Text = song.SongTitle;
+                comboBoxAlbum.SelectedValue = song.AlbumId;
+                comboBoxGenre.SelectedValue = song.GenreId;
+                textBoxPath.Text = song.Path;
+                buttonSave.Text = "Update";
+                buttonDelete.Enabled = true;
+            }
         }
 
         private void addAGenreToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,62 +181,16 @@ namespace Music_Library.Views
             else
                 e.Effect = DragDropEffects.None;
         }
-        
+
 
         private void txtFile_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
         {
             string[] s = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             int i;
             for (i = 0; i < s.Length; i++)
-                txtFile.Text = (s[i]);
+                textBoxPath.Text = (s[i]);
 
         }
-
-
-
-
-        private void SongForm_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Songs' table. You can move, or remove it, as needed.
-            this.songsTableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.Songs);
-            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Songs' table. You can move, or remove it, as needed.
-            this.songsTableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.Songs);
-            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Albums' table. You can move, or remove it, as needed.
-            this.albumsTableAdapter.Fill(this._Music_Library_MusicLibraryContextDataSet.Albums);
-            // TODO: This line of code loads data into the 'music_LibraryDataSet2.Genres' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Genres' table. You can move, or remove it, as needed.
-            this.genresTableAdapter2.Fill(this._Music_Library_MusicLibraryContextDataSet.Genres);
-
-        }
-
-        private void buttonSave_Click_1(object sender, EventArgs e)
-        {
-            song.SongTitle = textSongTitle.Text.Trim();
-            song.AlbumId = Convert.ToInt32(albumComboBox.SelectedValue);
-            song.GenreId = Convert.ToInt32(typeComboBox.SelectedValue);
-            using (MusicLibraryContext db = new MusicLibraryContext())
-            {
-
-
-                if (song.SongId == 0)
-                {
-                    db.Songs.Add(song);
-                }
-                else
-                {
-                    db.Entry(song).State = EntityState.Modified;
-                }
-                db.SaveChanges();
-                Clear();
-                PopulateDataGridView();
-                MessageBox.Show("Song entered successfully!");
-
-
-
-            }
-        }
-
 
         private void ChooseFile(object sender, EventArgs e)
 
@@ -179,8 +207,8 @@ namespace Music_Library.Views
                 {
                     // do anything you want with the file in this block
                     song.Path = "C:\\Users\\1295607\\Desktop\\songs" + System.IO.Path.GetFileName(path);
-                    txtFile.Text = path;
-                    
+                    textBoxPath.Text = path;
+
                 }
             }
         }

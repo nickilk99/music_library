@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Music_Library.Utilities;
 
 namespace Music_Library
 {
     public class Album
     {
+        private readonly ObservableListSource<Song> songs = new ObservableListSource<Song>();
+
         public int AlbumId { get; set; }
         public string AlbumTitle { get; set; }
         public string ArtistName { get; set; }
@@ -15,5 +13,13 @@ namespace Music_Library
         public int Length { get; set; }
 
         public byte[] Cover { get; set; }
+
+        public virtual ObservableListSource<Song> Songs
+        {
+            get
+            {
+                return songs;
+            }
+        }
     }
 }

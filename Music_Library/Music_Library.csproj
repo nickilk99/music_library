@@ -88,6 +88,7 @@
     <Compile Include="Utilities\GenreOperation.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Utilities\AlbumOperation.cs" />
+    <Compile Include="Utilities\ObservableListSource.cs" />
     <Compile Include="Utilities\SongOperation.cs" />
     <Compile Include="Views\ArtistForm.cs">
       <SubType>Form</SubType>
