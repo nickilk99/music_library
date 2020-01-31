@@ -46,11 +46,11 @@
             this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artistIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.artistBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArtist)).BeginInit();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
@@ -150,6 +150,7 @@
             this.dataGridViewArtist.DataSource = this.artistBindingSource;
             this.dataGridViewArtist.Location = new System.Drawing.Point(386, 102);
             this.dataGridViewArtist.Name = "dataGridViewArtist";
+            this.dataGridViewArtist.ReadOnly = true;
             this.dataGridViewArtist.Size = new System.Drawing.Size(345, 258);
             this.dataGridViewArtist.TabIndex = 9;
             this.dataGridViewArtist.DoubleClick += new System.EventHandler(this.dataGridViewArtist_DoubleClick);
@@ -207,11 +208,16 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // artistBindingSource
+            // 
+            this.artistBindingSource.DataSource = typeof(Music_Library.Artist);
+            // 
             // artistIdDataGridViewTextBoxColumn
             // 
             this.artistIdDataGridViewTextBoxColumn.DataPropertyName = "ArtistId";
             this.artistIdDataGridViewTextBoxColumn.HeaderText = "ArtistId";
             this.artistIdDataGridViewTextBoxColumn.Name = "artistIdDataGridViewTextBoxColumn";
+            this.artistIdDataGridViewTextBoxColumn.ReadOnly = true;
             this.artistIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // firstNameDataGridViewTextBoxColumn
@@ -219,22 +225,23 @@
             this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
             this.firstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.firstNameDataGridViewTextBoxColumn.Width = 101;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
             this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
             this.lastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ageDataGridViewTextBoxColumn
             // 
+            this.ageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
             this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
             this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
-            // 
-            // artistBindingSource
-            // 
-            this.artistBindingSource.DataSource = typeof(Music_Library.Artist);
+            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ArtistForm
             // 
@@ -286,10 +293,10 @@
         private System.Windows.Forms.ToolStripMenuItem addAnAlbumToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem libraryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addASongToolStripMenuItem;
+        private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.DataGridViewTextBoxColumn artistIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
