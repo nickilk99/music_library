@@ -37,9 +37,8 @@
             this.addASongToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.libraryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.songDataGridView = new System.Windows.Forms.DataGridView();
-            this.songsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this._Music_Library_MusicLibraryContextDataSet = new Music_Library._Music_Library_MusicLibraryContextDataSet();
             this.songsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this._Music_Library_MusicLibraryContextDataSet = new Music_Library._Music_Library_MusicLibraryContextDataSet();
             this.songIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.albumIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,21 +62,22 @@
             this.lblPath = new System.Windows.Forms.Label();
             this.txtFile = new System.Windows.Forms.TextBox();
             this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.songTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.songIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.albumIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genreIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pathDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.songTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.songsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             typeLabel = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.songsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Music_Library_MusicLibraryContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.songsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Music_Library_MusicLibraryContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.musicLibraryMusicLibraryContextDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.songsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // typeLabel
@@ -144,31 +144,26 @@
             this.songDataGridView.AutoGenerateColumns = false;
             this.songDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.songDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.songTitleDataGridViewTextBoxColumn,
-            this.pathDataGridViewTextBoxColumn,
             this.songIdDataGridViewTextBoxColumn1,
             this.albumIdDataGridViewTextBoxColumn1,
-            this.genreIdDataGridViewTextBoxColumn1});
+            this.genreIdDataGridViewTextBoxColumn1,
+            this.pathDataGridViewTextBoxColumn,
+            this.songTitleDataGridViewTextBoxColumn});
             this.songDataGridView.DataSource = this.songsBindingSource1;
             this.songDataGridView.Location = new System.Drawing.Point(306, 90);
             this.songDataGridView.Name = "songDataGridView";
             this.songDataGridView.Size = new System.Drawing.Size(476, 138);
             this.songDataGridView.TabIndex = 21;
             // 
-            // songsBindingSource1
+            // songsBindingSource
             // 
-            this.songsBindingSource1.DataMember = "Songs";
-            this.songsBindingSource1.DataSource = this._Music_Library_MusicLibraryContextDataSet;
+            this.songsBindingSource.DataMember = "Songs";
+            this.songsBindingSource.DataSource = this._Music_Library_MusicLibraryContextDataSet;
             // 
             // _Music_Library_MusicLibraryContextDataSet
             // 
             this._Music_Library_MusicLibraryContextDataSet.DataSetName = "_Music_Library_MusicLibraryContextDataSet";
             this._Music_Library_MusicLibraryContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // songsBindingSource
-            // 
-            this.songsBindingSource.DataMember = "Songs";
-            this.songsBindingSource.DataSource = this._Music_Library_MusicLibraryContextDataSet;
             // 
             // songIdDataGridViewTextBoxColumn
             // 
@@ -337,18 +332,6 @@
             this.Path.HeaderText = "Path";
             this.Path.Name = "Path";
             // 
-            // songTitleDataGridViewTextBoxColumn
-            // 
-            this.songTitleDataGridViewTextBoxColumn.DataPropertyName = "SongTitle";
-            this.songTitleDataGridViewTextBoxColumn.HeaderText = "SongTitle";
-            this.songTitleDataGridViewTextBoxColumn.Name = "songTitleDataGridViewTextBoxColumn";
-            // 
-            // pathDataGridViewTextBoxColumn
-            // 
-            this.pathDataGridViewTextBoxColumn.DataPropertyName = "Path";
-            this.pathDataGridViewTextBoxColumn.HeaderText = "Path";
-            this.pathDataGridViewTextBoxColumn.Name = "pathDataGridViewTextBoxColumn";
-            // 
             // songIdDataGridViewTextBoxColumn1
             // 
             this.songIdDataGridViewTextBoxColumn1.DataPropertyName = "SongId";
@@ -367,6 +350,23 @@
             this.genreIdDataGridViewTextBoxColumn1.DataPropertyName = "GenreId";
             this.genreIdDataGridViewTextBoxColumn1.HeaderText = "GenreId";
             this.genreIdDataGridViewTextBoxColumn1.Name = "genreIdDataGridViewTextBoxColumn1";
+            // 
+            // pathDataGridViewTextBoxColumn
+            // 
+            this.pathDataGridViewTextBoxColumn.DataPropertyName = "Path";
+            this.pathDataGridViewTextBoxColumn.HeaderText = "Path";
+            this.pathDataGridViewTextBoxColumn.Name = "pathDataGridViewTextBoxColumn";
+            // 
+            // songTitleDataGridViewTextBoxColumn
+            // 
+            this.songTitleDataGridViewTextBoxColumn.DataPropertyName = "SongTitle";
+            this.songTitleDataGridViewTextBoxColumn.HeaderText = "SongTitle";
+            this.songTitleDataGridViewTextBoxColumn.Name = "songTitleDataGridViewTextBoxColumn";
+            // 
+            // songsBindingSource1
+            // 
+            this.songsBindingSource1.DataMember = "Songs";
+            this.songsBindingSource1.DataSource = this._Music_Library_MusicLibraryContextDataSet;
             // 
             // SongForm
             // 
@@ -392,13 +392,13 @@
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.songsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._Music_Library_MusicLibraryContextDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.songsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._Music_Library_MusicLibraryContextDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.albumsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.genresBindingSource4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.musicLibraryMusicLibraryContextDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.songsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,11 +438,11 @@
         private System.Windows.Forms.Label lblPath;
         private System.Windows.Forms.TextBox txtFile;
         private System.Windows.Forms.DataGridViewTextBoxColumn Path;
-        private System.Windows.Forms.BindingSource songsBindingSource1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn songTitleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn songIdDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn albumIdDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn genreIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pathDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn songTitleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource songsBindingSource1;
     }
 }

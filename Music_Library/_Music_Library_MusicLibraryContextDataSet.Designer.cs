@@ -2295,14 +2295,14 @@ namespace Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GenreId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GenreId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Genres] ([Type]) VALUES (@Type);\r\nSELECT GenreId, Type FROM Ge" +
-                "nres WHERE (GenreId = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Genres] ([Type]) VALUES (@Type);\nSELECT GenreId, Type FROM Gen" +
+                "res WHERE (GenreId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Genres] SET [Type] = @Type WHERE (([GenreId] = @Original_GenreId));" +
-                "\r\nSELECT GenreId, Type FROM Genres WHERE (GenreId = @GenreId)";
+                "\nSELECT GenreId, Type FROM Genres WHERE (GenreId = @GenreId)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_GenreId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "GenreId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -2605,8 +2605,8 @@ namespace Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters {
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Albums] ([AlbumTitle], [ArtistName], [Year], [Length]) VALUES " +
-                "(@AlbumTitle, @ArtistName, @Year, @Length);\r\nSELECT AlbumId, AlbumTitle, ArtistN" +
-                "ame, Year, Length FROM Albums WHERE (AlbumId = SCOPE_IDENTITY())";
+                "(@AlbumTitle, @ArtistName, @Year, @Length);\nSELECT AlbumId, AlbumTitle, ArtistNa" +
+                "me, Year, Length FROM Albums WHERE (AlbumId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AlbumTitle", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AlbumTitle", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ArtistName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ArtistName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2941,8 +2941,8 @@ SELECT AlbumId, AlbumTitle, ArtistName, Year, Length FROM Albums WHERE (AlbumId 
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Artists] ([FirstName], [LastName], [Age]) VALUES (@FirstName, " +
-                "@LastName, @Age);\r\nSELECT ArtistId, FirstName, LastName, Age FROM Artists WHERE " +
-                "(ArtistId = SCOPE_IDENTITY())";
+                "@LastName, @Age);\nSELECT ArtistId, FirstName, LastName, Age FROM Artists WHERE (" +
+                "ArtistId = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -2950,9 +2950,9 @@ SELECT AlbumId, AlbumTitle, ArtistName, Year, Length FROM Albums WHERE (AlbumId 
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Artists] SET [FirstName] = @FirstName, [LastName] = @LastName, [Age" +
-                "] = @Age WHERE (([ArtistId] = @Original_ArtistId) AND ([Age] = @Original_Age));\r" +
-                "\nSELECT ArtistId, FirstName, LastName, Age FROM Artists WHERE (ArtistId = @Artis" +
-                "tId)";
+                "] = @Age WHERE (([ArtistId] = @Original_ArtistId) AND ([Age] = @Original_Age));\n" +
+                "SELECT ArtistId, FirstName, LastName, Age FROM Artists WHERE (ArtistId = @Artist" +
+                "Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
