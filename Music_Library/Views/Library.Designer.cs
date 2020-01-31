@@ -60,6 +60,8 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.txtPlay = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vWSongAlbum2BindingSource)).BeginInit();
             this.menuStrip2.SuspendLayout();
@@ -255,11 +257,30 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Path";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
+            // btnPlay
+            // 
+            this.btnPlay.Location = new System.Drawing.Point(13, 266);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(75, 23);
+            this.btnPlay.TabIndex = 5;
+            this.btnPlay.Text = "Play Song";
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
+            // txtPlay
+            // 
+            this.txtPlay.Location = new System.Drawing.Point(106, 268);
+            this.txtPlay.Name = "txtPlay";
+            this.txtPlay.Size = new System.Drawing.Size(100, 20);
+            this.txtPlay.TabIndex = 6;
+            // 
             // Library
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(808, 450);
+            this.Controls.Add(this.txtPlay);
+            this.Controls.Add(this.btnPlay);
             this.Controls.Add(this.vWSongAlbum4DataGridView);
             this.Controls.Add(this.WMP);
             this.Controls.Add(this.menuStrip2);
@@ -317,5 +338,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.TextBox txtPlay;
     }
 }

@@ -98,15 +98,21 @@ namespace Music_Library.Views
 
         private void vWSongAlbum4DataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string path = Convert.ToString(vWSongAlbum4DataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn4"].Value);
-            WMP.URL = @path;
-            WMP.currentPlaylist = WMP.mediaCollection.getByName(path);
-            MessageBox.Show(path);
+            //string path = Convert.ToString(vWSongAlbum4DataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn4"].Value);
+            //WMP.URL = @path;
+            //WMP.currentPlaylist = WMP.mediaCollection.getByName(path);
+            txtPlay.Text = Convert.ToString(vWSongAlbum4DataGridView.CurrentRow.Cells["dataGridViewTextBoxColumn4"].Value);
+            //MessageBox.Show(path);
         }
 
         private void WMP_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            WMP.URL = txtPlay.Text; 
         }
     }
 }

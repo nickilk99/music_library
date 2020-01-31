@@ -206,7 +206,7 @@ namespace Music_Library.Views
                 using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()))
                 {
                     // do anything you want with the file in this block
-                    song.Path = "C:\\Users\\1295607\\Desktop\\songs" + System.IO.Path.GetFileName(path);
+                    song.Path = path;
                     textBoxPath.Text = path;
 
                 }
@@ -220,6 +220,16 @@ namespace Music_Library.Views
             {
                 frm.ShowDialog();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.URL = textBoxPath.Text;
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 
