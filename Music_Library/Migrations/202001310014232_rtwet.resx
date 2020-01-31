@@ -117,46 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="typeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="menuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="Path.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="songsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>370, 89</value>
-  </metadata>
-  <metadata name="_Music_Library_MusicLibraryContextDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>181, 19</value>
-  </metadata>
-  <metadata name="albumBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>700, 59</value>
-  </metadata>
-  <metadata name="albumsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>677, 18</value>
-  </metadata>
-  <metadata name="genresTableAdapter2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>492, 57</value>
-  </metadata>
-  <metadata name="tableAdapterManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>897, 21</value>
-  </metadata>
-  <metadata name="genresBindingSource4.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>483, 18</value>
-  </metadata>
-  <metadata name="albumsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>903, 50</value>
-  </metadata>
-  <metadata name="musicLibraryMusicLibraryContextDataSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 89</value>
-  </metadata>
-  <metadata name="songsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>532, 89</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>219</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
+  </data>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
+  </data>
 </root>

@@ -59,6 +59,9 @@
             this.albumsTableAdapter = new Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters.AlbumsTableAdapter();
             this.musicLibraryMusicLibraryContextDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.songsTableAdapter = new Music_Library._Music_Library_MusicLibraryContextDataSetTableAdapters.SongsTableAdapter();
+            this.lblPath = new System.Windows.Forms.Label();
+            this.txtFile = new System.Windows.Forms.TextBox();
+            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
             typeLabel = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.songDataGridView)).BeginInit();
@@ -73,7 +76,7 @@
             // typeLabel
             // 
             typeLabel.AutoSize = true;
-            typeLabel.Location = new System.Drawing.Point(10, 215);
+            typeLabel.Location = new System.Drawing.Point(14, 129);
             typeLabel.Name = "typeLabel";
             typeLabel.Size = new System.Drawing.Size(42, 13);
             typeLabel.TabIndex = 21;
@@ -124,6 +127,7 @@
             // 
             // libraryToolStripMenuItem
             // 
+            this.libraryToolStripMenuItem.Enabled = false;
             this.libraryToolStripMenuItem.Name = "libraryToolStripMenuItem";
             this.libraryToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.libraryToolStripMenuItem.Text = "Library";
@@ -136,9 +140,10 @@
             this.songIdDataGridViewTextBoxColumn,
             this.titleDataGridViewTextBoxColumn,
             this.albumIdDataGridViewTextBoxColumn,
-            this.genreIdDataGridViewTextBoxColumn});
+            this.genreIdDataGridViewTextBoxColumn,
+            this.Path});
             this.songDataGridView.DataSource = this.songsBindingSource;
-            this.songDataGridView.Location = new System.Drawing.Point(299, 170);
+            this.songDataGridView.Location = new System.Drawing.Point(306, 90);
             this.songDataGridView.Name = "songDataGridView";
             this.songDataGridView.Size = new System.Drawing.Size(476, 138);
             this.songDataGridView.TabIndex = 21;
@@ -180,7 +185,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(187, 285);
+            this.buttonCancel.Location = new System.Drawing.Point(191, 250);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 19;
@@ -190,7 +195,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(106, 285);
+            this.buttonDelete.Location = new System.Drawing.Point(110, 250);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(75, 23);
             this.buttonDelete.TabIndex = 18;
@@ -201,7 +206,7 @@
             // buttonSave
             // 
             this.buttonSave.AutoSize = true;
-            this.buttonSave.Location = new System.Drawing.Point(25, 285);
+            this.buttonSave.Location = new System.Drawing.Point(29, 250);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 17;
@@ -211,7 +216,7 @@
             // 
             // textSongTitle
             // 
-            this.textSongTitle.Location = new System.Drawing.Point(58, 185);
+            this.textSongTitle.Location = new System.Drawing.Point(62, 99);
             this.textSongTitle.Name = "textSongTitle";
             this.textSongTitle.Size = new System.Drawing.Size(204, 20);
             this.textSongTitle.TabIndex = 14;
@@ -219,7 +224,7 @@
             // labelAlbum
             // 
             this.labelAlbum.AutoSize = true;
-            this.labelAlbum.Location = new System.Drawing.Point(12, 245);
+            this.labelAlbum.Location = new System.Drawing.Point(16, 159);
             this.labelAlbum.Name = "labelAlbum";
             this.labelAlbum.Size = new System.Drawing.Size(39, 13);
             this.labelAlbum.TabIndex = 13;
@@ -228,7 +233,7 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Location = new System.Drawing.Point(12, 192);
+            this.labelTitle.Location = new System.Drawing.Point(16, 106);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(30, 13);
             this.labelTitle.TabIndex = 11;
@@ -243,7 +248,7 @@
             this.albumComboBox.DataSource = this.albumsBindingSource;
             this.albumComboBox.DisplayMember = "AlbumTitle";
             this.albumComboBox.FormattingEnabled = true;
-            this.albumComboBox.Location = new System.Drawing.Point(57, 237);
+            this.albumComboBox.Location = new System.Drawing.Point(61, 151);
             this.albumComboBox.Name = "albumComboBox";
             this.albumComboBox.Size = new System.Drawing.Size(205, 21);
             this.albumComboBox.TabIndex = 21;
@@ -272,7 +277,7 @@
             this.typeComboBox.DataSource = this.genresBindingSource4;
             this.typeComboBox.DisplayMember = "Type";
             this.typeComboBox.FormattingEnabled = true;
-            this.typeComboBox.Location = new System.Drawing.Point(57, 212);
+            this.typeComboBox.Location = new System.Drawing.Point(61, 126);
             this.typeComboBox.Name = "typeComboBox";
             this.typeComboBox.Size = new System.Drawing.Size(205, 21);
             this.typeComboBox.TabIndex = 22;
@@ -296,11 +301,37 @@
             // 
             this.songsTableAdapter.ClearBeforeFill = true;
             // 
+            // lblPath
+            // 
+            this.lblPath.AutoSize = true;
+            this.lblPath.Location = new System.Drawing.Point(20, 192);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(26, 13);
+            this.lblPath.TabIndex = 24;
+            this.lblPath.Text = "File:";
+            // 
+            // txtFile
+            // 
+            this.txtFile.AllowDrop = true;
+            this.txtFile.Location = new System.Drawing.Point(61, 184);
+            this.txtFile.Name = "txtFile";
+            this.txtFile.Size = new System.Drawing.Size(205, 20);
+            this.txtFile.TabIndex = 26;
+            this.txtFile.Click += new System.EventHandler(this.ChooseFile);
+            // 
+            // Path
+            // 
+            this.Path.DataPropertyName = "Path";
+            this.Path.HeaderText = "Path";
+            this.Path.Name = "Path";
+            // 
             // SongForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 633);
+            this.Controls.Add(this.txtFile);
+            this.Controls.Add(this.lblPath);
             this.Controls.Add(typeLabel);
             this.Controls.Add(this.typeComboBox);
             this.Controls.Add(this.albumComboBox);
@@ -360,5 +391,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn albumIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn genreIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lblPath;
+        private System.Windows.Forms.TextBox txtFile;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Path;
     }
 }

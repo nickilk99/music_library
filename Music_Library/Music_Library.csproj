@@ -73,6 +73,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\202001310014232_rtwet.cs" />
+    <Compile Include="Migrations\202001310014232_rtwet.designer.cs">
+      <DependentUpon>202001310014232_rtwet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001310027306_d.cs" />
+    <Compile Include="Migrations\202001310027306_d.designer.cs">
+      <DependentUpon>202001310027306_d.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\GenreOperation.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Utilities\AlbumOperation.cs" />
@@ -117,6 +125,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>_Music_Library_MusicLibraryContextDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\202001310014232_rtwet.resx">
+      <DependentUpon>202001310014232_rtwet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001310027306_d.resx">
+      <DependentUpon>202001310027306_d.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\AlbumForm.resx">
       <DependentUpon>AlbumForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,8 @@ namespace Music_Library.Views
         public SongForm()
         {
             InitializeComponent();
+            this.txtFile.DragDrop += new System.Windows.Forms.DragEventHandler(this.txtFile_DragDrop);
+            this.txtFile.DragEnter += new System.Windows.Forms.DragEventHandler(this.txtFile_DragEnter);
         }
 
         private void FrmAddSong_Load(object sender, EventArgs e)
@@ -96,6 +99,28 @@ namespace Music_Library.Views
             }
         }
 
+
+        private void txtFile_DragEnter(object sender, System.Windows.Forms.DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.All;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+        
+
+        private void txtFile_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
+        {
+            string[] s = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            int i;
+            for (i = 0; i < s.Length; i++)
+                txtFile.Text = (s[i]);
+
+        }
+
+
+
+
         private void SongForm_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the '_Music_Library_MusicLibraryContextDataSet.Songs' table. You can move, or remove it, as needed.
@@ -137,5 +162,30 @@ namespace Music_Library.Views
 
             }
         }
+
+
+        private void ChooseFile(object sender, EventArgs e)
+
+
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            //dialog.Filter = "Text files | *.txt"; // file types, that will be allowed to upload
+            dialog.Multiselect = false; // allow/deny user to upload more than one file at a time
+            if (dialog.ShowDialog() == DialogResult.OK) // if user clicked OK
+            {
+                String path = dialog.FileName; // get name of file (or is it the full path?)
+
+                using (StreamReader reader = new StreamReader(new FileStream(path, FileMode.Open), new UTF8Encoding()))
+                {
+                    // do anything you want with the file in this block
+                    song.Path = "C:\\Users\\1295607\\Desktop\\songs" + System.IO.Path.GetFileName(path);
+                    txtFile.Text = path;
+                    
+                }
+            }
+        }
+
     }
+
 }
+

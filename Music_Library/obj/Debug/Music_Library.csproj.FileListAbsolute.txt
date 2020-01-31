@@ -127,3 +127,5 @@ C:\Users\nilkic03\source\repos\music_library5\Music_Library\obj\Debug\Music_Libr
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.ArtistForm.resources
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.GenreForm.resources
 C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Views.SongForm.resources
+C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Migrations.rtwet.resources
+C:\Users\1295607\Desktop\proj_dotNET\music_library\Music_Library\obj\Debug\Music_Library.Migrations.d.resources

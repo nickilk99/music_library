@@ -19,5 +19,7 @@ namespace Music_Library
         public int GenreId { get; set; }
         public virtual Genre Genre { get; set; }
 
+        public string Path { get; set; }
+
     }
 }
